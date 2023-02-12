@@ -192,3 +192,33 @@ t1flex(Q4_table6) %>%
   save_as_docx(path = here("results","tables","MSWord","Table6_Q12-Q14_method.docx"),
                pr_section = sect_properties)
 
+
+#----------------------------------------------------------------#
+# Table 7
+
+table1::label(analysis_hegs_rpl$Q17_rep_behavior_1) <- "Thought about the replicability of your research"
+table1::label(analysis_hegs_rpl$Q17_rep_behavior_2) <- "Spoken with colleagues about replicability"
+table1::label(analysis_hegs_rpl$Q17_rep_behavior_3) <- "Questioned the replicability of published research"
+table1::label(analysis_hegs_rpl$Q17_rep_behavior_4) <- "Considered replicability while peer reviewing a research proposal or publication"
+table1::label(analysis_hegs_rpl$Q17_rep_behavior_5) <- "Attempted to replicate prior research claims"
+
+
+Q3_table7 <- table1::table1(~Q17_rep_behavior_1 + Q17_rep_behavior_2 + Q17_rep_behavior_3 +
+                             Q17_rep_behavior_4 + Q17_rep_behavior_5 | Q3_recoded , data = analysis_hegs_rpl)
+
+Q4_table7 <- table1::table1(~Q17_rep_behavior_1 + Q17_rep_behavior_2 + Q17_rep_behavior_3 +
+                              Q17_rep_behavior_4 + Q17_rep_behavior_5 | Q4_quantqual , data = analysis_hegs_rpl)
+
+# Output tables using write table and flextable
+write.table(Q3_table7 , here("results","tables","Table7_Behavior_discipline.csv"), col.names = T, row.names=F, append= T, sep=',')
+write.table(Q4_table7 , here("results","tables","Table7_Behavior_method.csv"), col.names = T, row.names=F, append= T, sep=',')
+
+t1flex(Q3_table7) %>% 
+  save_as_docx(path = here("results","tables","MSWord","Table7_Behavior_discipline.docx"),
+               pr_section = sect_properties)
+
+t1flex(Q4_table7) %>% 
+  save_as_docx(path = here("results","tables","MSWord","Table7_Behavior_method.docx"),
+               pr_section = sect_properties)
+
+
