@@ -21,36 +21,31 @@ writeLines(capture.output(sessionInfo()),here("procedure","environment","r_envir
 
 #--------------------------------------------#
 raw_hegs_rpl <- readRDS(here("data","raw","public","raw_hegs_rpl.rds"))
-completes <- read.csv(here("data","raw","private","final_classification_Survey-Response-Tracking_qualtrics_update_v4.csv"))
-raw_hegs_rpl <- left_join(raw_hegs_rpl, completes, by = c("ResponseId" = "Response.ID"))
+#completes <- read.csv(here("data","raw","private","final_classification_Survey-Response-Tracking_qualtrics_update_v4.csv"))
+#raw_hegs_rpl <- left_join(raw_hegs_rpl, completes, by = c("ResponseId" = "Response.ID"))
 
-int_hegs_rpl <- raw_hegs_rpl %>% filter(Disposition.Code %in% c(1.1,1.2))
-#int_hegs_rpl <- raw_hegs_rpl %>% filter(Progress > 70 & Q1_age != "Under 18")
+int_hegs_rpl <- raw_hegs_rpl %>% filter(Progress > 70 & Q1_age != "Under 18")
 summary(int_hegs_rpl$Progress)
-
+table(int_hegs_rpl$Progress)
 
 table(toupper(int_hegs_rpl$Q3_subfield_5_TEXT))
-
-#Not sure how to classify
-# "INNOVATION", "INNOVATION STUDIES"
-
 
 #-Open response areas of specialization to recode-#
 hum_list  <- c("CULTURAL GEOGRAPHY", "URBAN GEOGRAPHY", "URBAN PLANNING AND GEOGRAPHY", "URBAN STUDIES",
                "MEDICAL GEOGRAPHY", "POLITICAL SCIENCE", "PSYCHOLOGY", "REDISTRICTING", "REGIONAL SCIENCE", "SOCIOLOGY",
                "CRIMINAL JUSTICE & CRIMINOLOGY", "ECONOMIC GEOGRAPHY", "ECONOMIC GEOGRAPHY, URBAN STUDIES, PLANNING", 
-               "ECONOMICS", "ECONOMY")
+               "ECONOMICS", "ECONOMY", "INNOVATION", "INNOVATION STUDIES",
+               "BUILT ENVIRONMENT AND TRAVEL BEHAVIOR; ACCESSIBILITY; SUSTAINABLE MOBILITY", 
+               "MULTI REGIONAL INPUT-OUTPUT", "REAL ESTATE", "TOURISM AND LEISURE", "TRANSPORTATION")
 
 phys_list <- c("PHYSICAL OCEANOGRAPHY", "PHYSICAL SCIENCES", "OCEANOGRAPHY, CLIMATE", "PALEOCLIMATE AND PALEOENVIRONMENT", 
-               "RESILIENCE AND CLIMATE CHANGE", "BIOGEOGRAPHY","PALEOBOTANY","PALEOCLIMATOLOGY",
-               "ENVIRONMENTAL ECONOMICS", "ENVIRONMENTAL PLANNING", "ENVIRONMENTAL SOCIOLOGY")
+                "BIOGEOGRAPHY","PALEOBOTANY","PALEOCLIMATOLOGY",
+               "LANDSCAPE GENETICS GENOMICS", "PHYLOGEOGRAPHY", "BIOGEOGRAPHY", "BIOGEOGRAPHY, LANDSCAPE ECOLOGY" , "ECOLOGY", "ECOLOGY AND EVOLUTION", 
+               "ECOLOGY/BIOGEOGRAPHY", "PLANT ECOLOGY", "WILDLIFE ECOLOGY")
 
-nat_list  <- c("ARCHAEOLOGY","LANDSCAPE GENETICS GENOMICS", "PHYLOGEOGRAPHY", "HAZARD AND RISK",
-               "BIOGEOGRAPHY", "BIOGEOGRAPHY, LANDSCAPE ECOLOGY" , "ECOLOGY", "ECOLOGY AND EVOLUTION", 
-               "ECOLOGY/BIOGEOGRAPHY", "PLANT ECOLOGY", "WILDLIFE ECOLOGY", 
-               "BUILT ENVIRONMENT AND TRAVEL BEHAVIOR; ACCESSIBILITY; SUSTAINABLE MOBILITY", 
-               "LAN DUSE PLANNING SYSTEMS", "LAND USE","MULTI REGIONAL INPUT-OUTPUT",
-               "REAL ESTATE", "TOURISM AND LEISURE", "TRANSPORTATION")
+nat_list  <- c("ARCHAEOLOGY", "HAZARD AND RISK",
+               "LAN DUSE PLANNING SYSTEMS", "LAND USE", "RESILIENCE AND CLIMATE CHANGE",
+               "ENVIRONMENTAL ECONOMICS", "ENVIRONMENTAL PLANNING", "ENVIRONMENTAL SOCIOLOGY")
 
 gis_list  <- c("SPATIAL ANALYSIS OF LABOR MARKET", "GEOGRAPHY EDUCATION (SPECIFICALLY GIS)", 
                "VOLUNTEERED GEOGRAPHIC INFORMATION", "CQRTOGRAPHY, SEMIOLOGY OF GRAPHICS", "MAP PROJECTION")
@@ -96,4 +91,59 @@ levels(int_hegs_rpr$Q25_recoded) <- c("Full professor/lecturer",
 
 table(int_hegs_rpl$Q25_recoded,toupper(int_hegs_rpl$Q25_title))
 
+#----------------------------------------------------------#
 
+#- Update NAs with valid values to reflect question logic -#
+
+#----------------------------------------------------------#
+
+
+
+#----------------------------------------------------------#
+
+#- Convert character to ordered factors-#
+
+#----------------------------------------------------------#
+# convert agree questions into ordered factors
+values <- c("Strongly agree", "Agree", "Disagree","Strongly disagree")
+questions <- c("Q7_value_1", "Q7_value_2", "Q7_value_3", "Q7_value_4","Q7_value_5")
+int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions], 
+                                  factor, 
+                                  levels=values,
+                                  ordered = TRUE,
+                                  exclude=c("", "Don't Know"))
+
+# convert increase questions into ordered factors
+values <- c("Very likely to increase", "Somewhat likely to increase", "Not likely to affect", "Somewhat likely to decrease","Very likely to decrease")
+questions <- c("Q8_study_factors_1", "Q8_study_factors_2", "Q8_study_factors_3", "Q8_study_factors_4",
+               "Q8_study_factors_5", "Q8_study_factors_6", "Q8_study_factors_7", "Q8_study_factors_8",
+               "Q8_study_factors_9", "Q8_study_factors_10",
+               "Q10_phen_factors_1", "Q10_phen_factors_2", "Q10_phen_factors_3", "Q10_phen_factors_4",
+               "Q10_phen_factors_5", "Q10_phen_factors_6")
+int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions], 
+                                  factor, 
+                                  levels=values,
+                                  ordered = TRUE,
+                                  exclude=c("", "Don't Know"))
+
+# convert frequency questions into ordered factors
+values <- c("Always", "Frequently", "Occasionally", "Rarely", "Never")
+questions <- c("Q15_decision_factors_1", "Q15_decision_factors_2", "Q15_decision_factors_3", 
+               "Q15_decision_factors_4", "Q15_decision_factors_5", "Q15_decision_factors_6", 
+               "Q15_decision_factors_7", "Q15_decision_factors_8", "Q15_decision_factors_9", 
+               "Q15_decision_factors_10", "Q15_decision_factors_11", "Q15_decision_factors_12")
+int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions], 
+                                  factor, 
+                                  levels=values,
+                                  ordered = TRUE,
+                                  exclude="Don't Know")
+
+
+#--------------------------------#
+
+#- Perform Qualitative Coding -#
+
+#--------------------------------#
+
+
+saveRDS(int_hegs_rpl, here("data","derived","public","analysis_hegs_rpl.rds"))
