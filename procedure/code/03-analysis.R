@@ -48,7 +48,7 @@ t1flex(Q4_table1) %>%
   save_as_docx(path = here("results","tables","MSWord","Table1_Summary_method.docx"),
                pr_section = sect_properties)
 
-
+#----------------------------------------------------------------#
 #- Q7 Tables -#
 table1::label(analysis_hegs_rpl$Q7_value_1) <- "Claim is the product of chance"
 table1::label(analysis_hegs_rpl$Q7_value_2) <- "Result is the product of a flawed research design"
@@ -71,7 +71,7 @@ t1flex(Q4_table2) %>%
   save_as_docx(path = here("results","tables","MSWord","Table2_RepValue_method.docx"),
                pr_section = sect_properties)
 
-
+#----------------------------------------------------------------#
 #- Q8 Tables -#
 table1::label(analysis_hegs_rpl$Q8_study_factors_1) <- "Multiple hypotheses were tested"
 table1::label(analysis_hegs_rpl$Q8_study_factors_2) <- "Quantitative methods were used"
@@ -105,7 +105,7 @@ t1flex(Q4_table3) %>%
   save_as_docx(path = here("results","tables","MSWord","Table3_StudyChar_method.docx"),
                pr_section = sect_properties)
 
-
+#----------------------------------------------------------------#
 #- Q10 Tables -#
 table1::label(analysis_hegs_rpl$Q10_phen_factors_1) <- "Spatially dependent upon itself"
 table1::label(analysis_hegs_rpl$Q10_phen_factors_2) <- "Strongly related with local conditions"
@@ -132,7 +132,7 @@ t1flex(Q4_table4) %>%
   save_as_docx(path = here("results","tables","MSWord","Table4_PhenomChar_method.docx"),
                pr_section = sect_properties)
 
-
+#----------------------------------------------------------------#
 #- Q15 Tables -#
 table1::label(analysis_hegs_rpl$Q15_decision_factors_1) <- "Pressure to publish original research"
 table1::label(analysis_hegs_rpl$Q15_decision_factors_2) <- "Low value of replication studies"
@@ -168,5 +168,27 @@ t1flex(Q3_table5) %>%
 
 t1flex(Q4_table5) %>% 
   save_as_docx(path = here("results","tables","MSWord","Table5_Decision_method.docx"),
+               pr_section = sect_properties)
+
+#----------------------------------------------------------------#
+# Table 6
+
+table1::label(analysis_hegs_rpl$Q12_pcnt_have_rep_1) <- "Percent of recent studies that have been replicated"
+table1::label(analysis_hegs_rpl$Q13_pcnt_have_rep_1) <- "Percent of recent studies that could be replicated"
+table1::label(analysis_hegs_rpl$Q14_pcnt_have_rep_1) <- "Percent of recent studies that should be replicated"
+
+Q3_table6 <- table1::table1(~Q12_pcnt_have_rep_1 + Q13_pcnt_could_rep_1 + Q14_pcnt_should_rep_1 | Q3_recoded , data = analysis_hegs_rpl)
+Q4_table6 <- table1::table1(~Q12_pcnt_have_rep_1 + Q13_pcnt_could_rep_1 + Q14_pcnt_should_rep_1 | Q4_quantqual , data = analysis_hegs_rpl)
+
+# Output tables using write table and flextable
+write.table(Q3_table6 , here("results","tables","Table6_Q12-Q14_discipline.csv"), col.names = T, row.names=F, append= T, sep=',')
+write.table(Q4_table6 , here("results","tables","Table6_Q12-Q14_method.csv"), col.names = T, row.names=F, append= T, sep=',')
+
+t1flex(Q3_table6) %>% 
+  save_as_docx(path = here("results","tables","MSWord","Table6_Q12-Q14_discipline.docx"),
+               pr_section = sect_properties)
+
+t1flex(Q4_table6) %>% 
+  save_as_docx(path = here("results","tables","MSWord","Table6_Q12-Q14_method.docx"),
                pr_section = sect_properties)
 
