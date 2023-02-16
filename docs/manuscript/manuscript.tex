@@ -1,0 +1,178 @@
+\documentclass[]{interact}
+\usepackage{epstopdf}% To incorporate .eps illustrations using PDFLaTeX, etc.
+\usepackage{subfigure}% Support for small, `sub' figures and tables
+%\usepackage[nolists,tablesfirst]{endfloat}% To `separate' figures and tables from text if required
+
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\setcitestyle{authoryear,open={(},close={)}}
+\renewcommand\bibfont{\fontsize{10}{12}\selectfont}% Bibliography support using natbib.sty
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+    citecolor=blue,
+}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+
+\usepackage{endnotes}
+\let\footnote=\endnote
+\usepackage{etoolbox}
+\patchcmd{\enoteformat}{1.8em}{0pt}{}{}
+
+\theoremstyle{plain}% Theorem-like structures provided by amsthm.sty
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{notation}{Notation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\articletype{DRAFT MANUSCRIPT}
+
+\title{Replication Survey}
+
+\author{
+\name{Peter Kedron\textsuperscript{a,b}\thanks{CONTACT Peter Kedron. Email: Peter.Kedron@asu.edu}, Joseph Holler\textsuperscript{c}, and Sarah Bardin\textsuperscript{a,b}}
+\affil{\textsuperscript{a}School of Geographical Sciences and Urban Planning, Arizona State University, Tempe, Arizona, USA; \textsuperscript{b}Spatial Analysis Research Center (SPARC), Arizona State University, Tempe, Arizona, USA; \textsuperscript{c}Department of Geography, Middlebury College, Middlebury, Vermont, USA}
+}
+
+\maketitle
+
+\begin{abstract}
+Write Abstract
+
+\end{abstract}
+
+\begin{keywords}
+Reproducible Research, Epistemology, Geographic Research Methods
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Introduction}
+Since the 1600s, replication has been a defining characteristic of the scientific method and an essential tool of researchers working to remove errors from our understanding of phenomena. 
+\citet{nosek2020} broadly define a replication as any study that has at least one outcome that would be considered to be diagnostic evidence of a claim from prior research.
+More frequently, replication is defined along two axes that help to distinguish the type of diagnostic evidence a study will provide and the function or purpose it is intended to serve. 
+First, it is common to distinguish whether a replication study used the same data as the original study, or if new data were collected and analyzed. 
+Second, it is helpful to identify whether a replication is focused on the question of whether the specific results of the original study can be reobserved, or whether the conclusions drawn from the original study are robust to changes in procedure or context.
+
+When a researcher asks whether the same data and procedures can be used to generate the same results as an original study the central purpose of their study is verification.
+If the researcher uses the original data, but introduces procedural differences they think may effect the original result they pursue a reanalysis designed to determine whether the original reasoning was somehow erroneous. 
+Both of these approaches to replication assess the internal validity of research and are more commonly referred to as reproductions.
+If the researcher tries to follow the procedures of an original study, but collects new data, the purpose shifts to evaluating the external validity of the original result by retesting it under new conditions.
+This approach is commonly referred to as replication. 
+
+While a replication or reproduction can never provide conclusive evidence for or against a finding, either type of study can be informative. 
+If a well-executed, high-quality replication or reproduction recreates the result of an original study, we are apt to increase our confidence in the original findings. 
+If a finding cannot be recreated, it reduces our confidence in the original result and suggests that our current understanding of the system being studied or our methods of testing that system are insufficient.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Survey Response Demographics}
+A total of \textit{n}=282 of the authors we contacted completed the online survey with information sufficient for analysis. 
+The contact rate for the survey was 17.7 percent, the response rate was 11.3 percent, yielding a cooperation rate of 64.0 percent. 
+The refusal rate was 6.4 percent\endnote{All outcome rates are reported using \citet{aaporstandards} standards. 
+The outcome rates used were - response rate 2, cooperation rate 2, refusal rate 1, and contact rate 1.}.
+Respondents were predominantly male (65.1\%) and between the ages of 35 and 55 (62.4\%). 
+The majority of respondents were also academics, but were well balanced across career levels as no one category made up more that 30 percent of the sample.
+Respondents were similarly balanced across disciplinary subfields, but did contain a greater number of physical geographers  - human geography (26.8\%), physical geography (39.9\%), nature and society (14.8\%), geographic methods and GIScience (17.3\%). 
+Different methodological approaches were well represented by respondents in the sample with qualitative researchers making up the smallest sub-group  - quantitative (47.3\%), qualitative (16.3\%), and mixed-methods (36.0\%).
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Researcher Definitions of Replication and its Epistemic Functions}
+\begin{itemize}
+    \item Coded analysis of Q6
+\end{itemize}
+
+A majority of respondents believe replications can serve epistemic functions.
+\begin{itemize}
+    \item Q7 control of chance 64.5\%
+    \item Q7 identify product of flawed design 59.7\%
+    \item Q7 construct validity 75.2\%
+    \item External validity population 62.9\%
+    \item External validity location 67.8\%
+    \item Human, Nature Society, and Qualitative researchers had lower agreement on each point.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Replication - Chances and motivations}
+Q12-14 Researcher perspectives on frequency of replication
+\begin{itemize}
+    \item Q12 - Geographic researchers do not believe many studies in their field have been replicated. Respondents estimated that on average a quarter of recent studies in their sub-field have be replicated. However, the distribution was strongly right skewed with a median resposne of 20\% and a heavy tail of responses (46.9\%) estimating below 10\% of recent studies have been replicated.
+    \item Q13 - Respondents estimated that half of the recent studies in their sub-field could be replicated (55.0\%, $\sigma = 24.3\%$). While centered on 55\% responses were fairly evenly dispersed from 0-100 indicating no clear common belied about this value. 
+    \item Q14 - Collectively, geographic researchers are also unclear on what percentage of studies should be replicated. Like 'could be replicated', respondents on average say half of studies should be replicated (55.9\%, $sigma=27.7\%$), but with a large variance and fairly flat histogram that indicates overall disagreement on the value of replicating a lot of studies. 
+\end{itemize}
+
+Q8-11 Factors that affect the chances of replicating a claim.
+Researchers collectively indicated that only a few study characteristics of phenomenon characteristics would alter an independent researcher's chances of replicating a prior claim. 
+Researcher identified more study characteristics than phenomena characterstics, which may indicate they they are thinking of this through the lens of artifact availability from the prior study and not the nature of the phenomena. 
+A small but notable percentage of researchers indicated that they simply did not know whether a factor would affect chances of replication. 
+
+
+Only a subset of study characteristics were consistently identified by geographic researchers as altering the chances of replicating the claims of a prior study.
+\begin{itemize}
+    \item Agreement that quantitative studies are more likely to be replicable (80.6\%)
+    \item Poor documentation decreases chances of replication (74.9\%)
+    \item use of restricted data decreases chances (68.1\%)
+    \item Positionality seemed to give a lean to decrease (53.4\%)
+    \item Researcher views on most study characteristics were fairly evenly split across increase, decrease, no-effect. Indicating they were not seen as consistently important across the the discipline. 
+    \item Minimal variation in responses across method groups or sub-fields. 
+\end{itemize}
+
+Phenomena
+\begin{itemize}
+    \item Spatial dependence lean to decrease chance of replication (41.0\%), but notable percentage of respondents (21.6\%) indicated not having a clear idea of whether this would matter.
+    \item Belief that strong relationship between a phenomenon and local conditions reduced chances of replication (59.7\%)
+    \item Fairly even spread across increase, decrease, no effect on exhibits variation across space.
+    \item When a phenomenon cannot be directly measured decreases chance of replication (61.5\%).
+    \item Really even distribution on nearly a phenomenon characteristics. Also a decently high percentage of i don't know resposnes for each characteristic. In most cases in the 10-20 percent range. 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Conclusion}
+A standing question is how should geographic research approaches be designed to efficiently generate reliable knowledge.
+
+\theendnotes
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgement(s)}
+We thank Tyler Hoffman for providing technical assistance in the development and execution of a set of trial queries using the Scopus API.
+
+\section*{Funding}
+This material is based on work supported by the National Science Foundation under Grant No. \textbf{BCS-2049837}.
+
+\section*{Notes on contributor(s)}
+\textbf{Kedron:} Conceptualization, Methodology, Writing - Original Draft, Writing - Review and Editing, Supervision, Project Administration, Funding Acquisition. \textbf{Holler:} Conceptualization, Methodology, Data Curation, Writing - Review and Editing, Funding Acquisition. \textbf{Bardin:} Conceptualization, Methodology, Writing - Original Draft, Writing - Review and Editing, Data Curation, Software.
+
+
+
+\newpage
+\bibliography{references}
+
+\newpage
+\noindent PETER KEDRON is an Associate Professor in the School of Geographical Science and Urban Planning and core faculty member in the Spatial Analysis Research Center (SPARC) at Arizona State University, Tempe, AZ, 85283, US. Email: Peter.Kedron@asu.edu. His research interests include spatial analysis, geographic information science, economic geography, and the accumulation of knowledge about geographic phenomena. \\  
+  
+\noindent JOSEPH HOLLER is an Assistant Professor of Geography at Middlebury College, Middlebury, VT, 05753, US. Email: \\
+  
+\noindent SARAH BARDIN is a PhD candidate ...
+
+\end{document}
