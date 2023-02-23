@@ -145,5 +145,8 @@ int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions],
 
 #--------------------------------#
 
+analysis_hegs_rpl %>% 
+  select(c("ResponseId","Q6_definition")) %>% 
+  write.csv(here("data","derived","public","q6_coding.csv"))
 
 saveRDS(int_hegs_rpl, here("data","derived","public","analysis_hegs_rpl.rds"))
