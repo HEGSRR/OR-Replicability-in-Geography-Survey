@@ -21,8 +21,6 @@ writeLines(capture.output(sessionInfo()),here("procedure","environment","r_envir
 
 #--------------------------------------------#
 raw_hegs_rpl <- readRDS(here("data","raw","public","raw_hegs_rpl.rds"))
-#completes <- read.csv(here("data","raw","private","final_classification_Survey-Response-Tracking_qualtrics_update_v4.csv"))
-#raw_hegs_rpl <- left_join(raw_hegs_rpl, completes, by = c("ResponseId" = "Response.ID"))
 
 int_hegs_rpl <- raw_hegs_rpl %>% filter(Progress > 70 & Q1_age != "Under 18")
 summary(int_hegs_rpl$Progress)

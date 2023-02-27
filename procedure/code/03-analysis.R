@@ -174,8 +174,8 @@ t1flex(Q4_table5) %>%
 # Table 6
 
 table1::label(analysis_hegs_rpl$Q12_pcnt_have_rep_1) <- "Percent of recent studies that have been replicated"
-table1::label(analysis_hegs_rpl$Q13_pcnt_have_rep_1) <- "Percent of recent studies that could be replicated"
-table1::label(analysis_hegs_rpl$Q14_pcnt_have_rep_1) <- "Percent of recent studies that should be replicated"
+table1::label(analysis_hegs_rpl$Q13_pcnt_could_rep_1) <- "Percent of recent studies that could be replicated"
+table1::label(analysis_hegs_rpl$Q14_pcnt_should_rep_1) <- "Percent of recent studies that should be replicated"
 
 Q3_table6 <- table1::table1(~Q12_pcnt_have_rep_1 + Q13_pcnt_could_rep_1 + Q14_pcnt_should_rep_1 | Q3_recoded , data = analysis_hegs_rpl)
 Q4_table6 <- table1::table1(~Q12_pcnt_have_rep_1 + Q13_pcnt_could_rep_1 + Q14_pcnt_should_rep_1 | Q4_quantqual , data = analysis_hegs_rpl)
@@ -191,6 +191,45 @@ t1flex(Q3_table6) %>%
 t1flex(Q4_table6) %>% 
   save_as_docx(path = here("results","tables","MSWord","Table6_Q12-Q14_method.docx"),
                pr_section = sect_properties)
+
+ggplot()
+
+
+
+ggplot(analysis_hegs_rpl, aes(x=Q12_pcnt_have_rep_1)) + 
+  geom_density()
+ggplot(analysis_hegs_rpl, aes(x=Q13_pcnt_could_rep_1)) + 
+  geom_density() 
+
+q14 <- ggplot(analysis_hegs_rpl, aes(Q14_pcnt_should_rep_1)) + 
+  geom_density()
+
+# Histogram with density plot
+ggplot(analysis_hegs_rpl, aes(x=Q12_pcnt_have_rep_1)) + 
+  geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
+  geom_density(alpha=.2, fill="#FF6666")  +
+  theme_minimal()
+
+library(reshape)
+library(RColorBrewer)
+
+plots <- analysis_hegs_rpl %>% 
+                transmute(Has = Q12_pcnt_have_rep_1,
+                          Could = Q13_pcnt_could_rep_1,
+                          Should = Q14_pcnt_should_rep_1,
+                          ResponseId,
+                          Q3_recoded,
+                          Q4) %>% 
+                as.data.frame %>%
+                melt(., id = c('ResponseId','Q3_recoded','Q4'))
+
+ggplot(plots, aes(x=value, fill=variable)) +
+  geom_density(alpha=.3) +
+  labs(x = "Percentage of research in subfield",
+       y = "Density",
+       fill = "Replicability",
+       title = "Overall") +
+  theme_classic()
 
 
 #----------------------------------------------------------------#
