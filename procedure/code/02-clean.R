@@ -147,4 +147,8 @@ analysis_hegs_rpl %>%
   select(c("ResponseId","Q6_definition")) %>% 
   write.csv(here("data","derived","public","q6_coding.csv"))
 
+analysis_hegs_rpl %>% 
+  select(c("ResponseId","Q9_study_factors_oth","Q11_phen_factors_oth")) %>% 
+  write.csv(here("data","derived","public","q9_q11_coding.csv"))
+
 saveRDS(int_hegs_rpl, here("data","derived","public","analysis_hegs_rpl.rds"))
