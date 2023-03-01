@@ -26,11 +26,11 @@ sect_properties <- prop_section(
 #-----------------------#
 #- Table 1) Summary Characteristics of Respondents -#
 
-table1::label(analysis_hegs_rpl$Q3_recoded) <- "Subdiscipline"
-table1::label(analysis_hegs_rpl$Q4)         <- "Methods"
+table1::label(analysis_hegs_rpl$Q3_recoded)   <- "Subdiscipline"
+table1::label(analysis_hegs_rpl$Q4)           <- "Methods"
 table1::label(analysis_hegs_rpl$Q24_lab_size) <- "Size of lab"
 table1::label(analysis_hegs_rpl$Q25_title)    <- "Title"
-table1::label(analysis_hegs_rpl$Q1)           <- "Age"
+table1::label(analysis_hegs_rpl$Q1_age)       <- "Age"
 
 
 Q3_table1 <- table1::table1(~Q4_quantqual + Q24_lab_size + Q25_title + Q1_age  | Q3_recoded, data = analysis_hegs_rpl)
@@ -197,13 +197,31 @@ t1flex(Q4_table6) %>%
 # Has
 ggplot(analysis_hegs_rpl, aes(x=Q12_pcnt_have_rep_1)) + 
   geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
-  geom_density(alpha=.1, fill="#FF6666")  +
+  geom_density(alpha=.2, fill="#FF6666")  +
   labs(x = "Percent of recent studies that have been replicated",
        y = "Density",
        title = "Overall") +
-  theme_minimal()
+  theme_classic()
 ggsave(here("results","figures","q12_hist_overall.png"))
 
+ggplot(analysis_hegs_rpl, aes(x=Q12_pcnt_have_rep_1)) + 
+  geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
+  geom_density(alpha=.2, fill="#FF6666")  +
+  labs(x = "Percent of recent studies that have been replicated",
+       y = "Density") +
+  facet_grid(. ~ Q3_recoded) +
+  theme_classic()
+ggsave(here("results","figures","q12_hist_discipline.png"))
+
+ggplot(analysis_hegs_rpl, aes(x=Q12_pcnt_have_rep_1)) + 
+  geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
+  geom_density(alpha=.2, fill="#FF6666")  +
+  labs(x = "Percent of recent studies that have been replicated",
+       y = "Density") +
+  facet_grid(. ~ Q4_quantqual) +
+  theme_classic()
+ggsave(here("results","figures","q12_hist_method.png"))
+  
 # Could
 ggplot(analysis_hegs_rpl, aes(x=Q13_pcnt_could_rep_1)) + 
   geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
@@ -211,8 +229,30 @@ ggplot(analysis_hegs_rpl, aes(x=Q13_pcnt_could_rep_1)) +
   labs(x = "Percent of recent studies that could be replicated",
        y = "Density",
        title = "Overall") +
-  theme_minimal()
+  theme_classic()
 ggsave(here("results","figures","q13_hist_overall.png"))
+
+ggplot(analysis_hegs_rpl, aes(x=Q13_pcnt_could_rep_1)) + 
+  geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
+  geom_density(alpha=.1, fill="green")  +
+  labs(x = "Percent of recent studies that could be replicated",
+       y = "Density",
+       title = "Overall") +
+  facet_grid(. ~ Q3_recoded) +
+  theme_classic()
+ggsave(here("results","figures","q13_hist_discipline.png"))
+
+ggplot(analysis_hegs_rpl, aes(x=Q13_pcnt_could_rep_1)) + 
+  geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
+  geom_density(alpha=.1, fill="green")  +
+  labs(x = "Percent of recent studies that could be replicated",
+       y = "Density",
+       title = "Overall") +
+  facet_grid(. ~ Q4_quantqual) +
+  theme_classic()
+ggsave(here("results","figures","q13_hist_method.png"))
+
+
 
 # Should
 ggplot(analysis_hegs_rpl, aes(x=Q14_pcnt_should_rep_1)) + 
@@ -221,8 +261,26 @@ ggplot(analysis_hegs_rpl, aes(x=Q14_pcnt_should_rep_1)) +
   labs(x = "Percent of recent studies that should be replicated",
        y = "Density",
        title = "Overall") +
-  theme_minimal()
+  theme_classic()
 ggsave(here("results","figures","q14_hist_overall.png"))
+
+ggplot(analysis_hegs_rpl, aes(x=Q14_pcnt_should_rep_1)) + 
+  geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
+  geom_density(alpha=.1, fill="blue")  +
+  labs(x = "Percent of recent studies that should be replicated",
+       y = "Density") +
+  facet_grid(. ~ Q3_recoded) +
+  theme_classic()
+ggsave(here("results","figures","q14_hist_discipline.png"))
+
+ggplot(analysis_hegs_rpl, aes(x=Q14_pcnt_should_rep_1)) + 
+  geom_histogram(aes(y=..density..), colour="darkgrey", fill="white")+
+  geom_density(alpha=.1, fill="blue")  +
+  labs(x = "Percent of recent studies that should be replicated",
+       y = "Density") +
+  facet_grid(. ~ Q4_quantqual) +
+  theme_classic()
+ggsave(here("results","figures","q14_hist_method.png"))
 
 library(reshape)
 plots <- analysis_hegs_rpl %>% 
@@ -248,8 +306,7 @@ ggplot(plots, aes(x=value, fill=variable)) +
   geom_density(alpha=.3) +
   labs(x = "Percentage of research in subfield",
        y = "Density",
-       fill = "Replicability",
-       title = "Overall")  +
+       fill = "Replicability")  +
   facet_grid(. ~ Q3_recoded) +
   theme_classic()
 ggsave(here("results","figures","q12-q14_stacked_discpline.png"))
@@ -259,8 +316,7 @@ ggplot(plots, aes(x=value, fill=variable)) +
   geom_density(alpha=.3) +
   labs(x = "Percentage of research in subfield",
        y = "Density",
-       fill = "Replicability",
-       title = "Overall")  +
+       fill = "Replicability")  +
   facet_grid(. ~ Q4_quantqual) +
   theme_classic()
 ggsave(here("results","figures","q12-q14_stacked_method.png"))
