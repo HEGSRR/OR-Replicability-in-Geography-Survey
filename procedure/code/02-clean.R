@@ -103,16 +103,16 @@ table(int_hegs_rpl$Q25_recoded,toupper(int_hegs_rpl$Q25_title))
 
 #----------------------------------------------------------#
 # convert agree questions into ordered factors
-values <- c("Strongly agree", "Agree", "Disagree","Strongly disagree")
+values <- c("Strongly agree", "Agree", "Disagree","Strongly disagree","Don't Know")
 questions <- c("Q7_value_1", "Q7_value_2", "Q7_value_3", "Q7_value_4","Q7_value_5")
 int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions], 
                                   factor, 
                                   levels=values,
                                   ordered = TRUE,
-                                  exclude=c("", "Don't Know"))
+                                  exclude=c(""))
 
 # convert increase questions into ordered factors
-values <- c("Very likely to increase", "Somewhat likely to increase", "Not likely to affect", "Somewhat likely to decrease","Very likely to decrease")
+values <- c("Very likely to increase", "Somewhat likely to increase", "Not likely to affect", "Somewhat likely to decrease","Very likely to decrease","Don't Know")
 questions <- c("Q8_study_factors_1", "Q8_study_factors_2", "Q8_study_factors_3", "Q8_study_factors_4",
                "Q8_study_factors_5", "Q8_study_factors_6", "Q8_study_factors_7", "Q8_study_factors_8",
                "Q8_study_factors_9", "Q8_study_factors_10",
@@ -122,10 +122,10 @@ int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions],
                                   factor, 
                                   levels=values,
                                   ordered = TRUE,
-                                  exclude=c("", "Don't Know"))
+                                  exclude=c(""))
 
 # convert frequency questions into ordered factors
-values <- c("Always", "Frequently", "Occasionally", "Rarely", "Never")
+values <- c("Always", "Frequently", "Occasionally", "Rarely", "Never", "Don't Know")
 questions <- c("Q15_decision_factors_1", "Q15_decision_factors_2", "Q15_decision_factors_3", 
                "Q15_decision_factors_4", "Q15_decision_factors_5", "Q15_decision_factors_6", 
                "Q15_decision_factors_7", "Q15_decision_factors_8", "Q15_decision_factors_9", 
@@ -134,7 +134,7 @@ int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions],
                                   factor, 
                                   levels=values,
                                   ordered = TRUE,
-                                  exclude="Don't Know")
+                                  exclude="")
 
 
 #--------------------------------#
