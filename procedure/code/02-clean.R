@@ -102,8 +102,9 @@ table(int_hegs_rpl$Q25_recoded,toupper(int_hegs_rpl$Q25_title))
 #- Convert character to ordered factors-#
 
 #----------------------------------------------------------#
+
 # convert agree questions into ordered factors
-values <- c("Strongly agree", "Agree", "Disagree","Strongly disagree","Don't Know")
+values <- c("Strongly agree", "Agree", "Disagree","Strongly disagree","Don't know")
 questions <- c("Q7_value_1", "Q7_value_2", "Q7_value_3", "Q7_value_4","Q7_value_5")
 int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions], 
                                   factor, 
@@ -112,7 +113,7 @@ int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions],
                                   exclude=c(""))
 
 # convert increase questions into ordered factors
-values <- c("Very likely to increase", "Somewhat likely to increase", "Not likely to affect", "Somewhat likely to decrease","Very likely to decrease","Don't Know")
+values <- c("Very likely to increase", "Somewhat likely to increase", "Not likely to affect", "Somewhat likely to decrease","Very likely to decrease","Don't know")
 questions <- c("Q8_study_factors_1", "Q8_study_factors_2", "Q8_study_factors_3", "Q8_study_factors_4",
                "Q8_study_factors_5", "Q8_study_factors_6", "Q8_study_factors_7", "Q8_study_factors_8",
                "Q8_study_factors_9", "Q8_study_factors_10",
@@ -125,7 +126,7 @@ int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions],
                                   exclude=c(""))
 
 # convert frequency questions into ordered factors
-values <- c("Always", "Frequently", "Occasionally", "Rarely", "Never", "Don't Know")
+values <- c("Always", "Frequently", "Occasionally", "Rarely", "Never", "Don't know")
 questions <- c("Q15_decision_factors_1", "Q15_decision_factors_2", "Q15_decision_factors_3", 
                "Q15_decision_factors_4", "Q15_decision_factors_5", "Q15_decision_factors_6", 
                "Q15_decision_factors_7", "Q15_decision_factors_8", "Q15_decision_factors_9", 
@@ -146,9 +147,5 @@ int_hegs_rpl[questions] <- lapply(int_hegs_rpl[questions],
 analysis_hegs_rpl %>% 
   select(c("ResponseId","Q6_definition")) %>% 
   write.csv(here("data","derived","public","q6_coding.csv"))
-
-analysis_hegs_rpl %>% 
-  select(c("ResponseId","Q9_study_factors_oth","Q11_phen_factors_oth")) %>% 
-  write.csv(here("data","derived","public","q9_q11_coding.csv"))
 
 saveRDS(int_hegs_rpl, here("data","derived","public","analysis_hegs_rpl.rds"))
