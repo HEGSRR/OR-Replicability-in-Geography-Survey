@@ -91,10 +91,69 @@ If a finding cannot be recreated, it reduces our confidence in the original resu
 For example, in a survey of 807 ecologists and evolutionary biologists, 64 percent admitted to failing to report non-significant results and 51 percent admitted to presenting unexpected findings as if they had been hypothesized from the start of the research \citep{fraser2018questionable}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Results}
+\section*{Data and Methods}
+Complete documentation of the procedures, survey instrument, and other materials used in this study are available through the Survey of Researcher Perceptions of Replication in Geography Repository (OSF WEBSITE).
+The repository connects to a GitHub repository which hosts the anonymized dataset and code used to create all results and supplemental materials along with a complete history of their development. 
+All of the results presented in this paper can be independently reproduced using the materials in that repository.
+Before the start of data collection, we registered a preanalysis plan for the survey with OSF Registries (\citet{Kedron_RPl_Survey_PAP} - \url{https://osf.io/a4nwg}). 
+The survey was conducted under the approval and supervision of the Arizona State Institutional Review Board - \textit{STUDY00014232}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Survey Response Demographics}
+\subsection*{Sampling Frame}
+Our target population of interest is researchers who have recently published in the field of geography. 
+We followed a 4-step procedure to create a sampling frame for our survey that captures this diverse population of researchers. 
+
+First, beginning at the publication level, we identified journals indexed as either geography or physical geography by the \href{https://access.clarivate.com/}{Web of Science's Journal Citation Reports} that also had a 5-year impact factor greater than 1.5.
+From those journals, we created a database of all articles published between 2017 and 2021.  
+
+Second, we used Arizona State University's institutional subscription to the \href{https://www.scopus.com/home.uri}{Scopus Database} to extract journal information (e.g., subject area, ranking), article information (e.g., abstract, citation counts), and author information (e.g., corresponding status, email) for each publication. 
+Because our intention was to capture individuals actively publishing new geographic research, we retained publications indexed by Scopus as \textit{document type = ``Article''} and removed all other publication types (e.g., editorials, book reviews) from our article database. 
+We also removed articles with missing authorship information. 
+
+Third, we created a list of researchers and their published articles, focusing on corresponding authors for two reasons.
+(1) Corresponding authorship is one indicator of the level of involvement an individual had in a given work. 
+While imperfect, it was the best available indicator in the Scopus database as across journals there is no commonly adopted policy for declarations of author work (e.g., CRediT Statements).
+(2) Scopus maintains email contact information for all corresponding authors, which gave us a means of contacting researchers in our sampling frame.
+Scopus also maintains a unique identifier for each author (author-id) across time, which allowed us to identify authors across publications. 
+
+Fourth, we constructed a sampling frame of unique researchers and their most recent email contact information. 
+We determined uniqueness by grouping researchers by their author-id, and we determined the most recent contact information by selecting records associated with the most recent year of publication. 
+For 383 researchers who had two or more distinct emails in the latest year of publication, we removed non-institutional personal email addresses and then selected one of the remaining institutional email address.
+
+Applying these criteria yielded a sampling frame of 29,828 researchers. 
+On average, these authors published 2.7 articles in geography journals meeting our criteria between 2017 and 2021. 
+Roughly one-third (33.0\%) were most recently a corresponding author for an article published in a general geography journal. 
+A similar proportion (32.0\%) were most recently a corresponding author for an article published in an earth sciences journal, and smaller proportions had published in the social sciences and cultural geography (20.0\% and 16.0\%, respectively).
+
+\subsection*{Survey Instrument}
+The survey first established eligibility based on age and geographic research activity in the past five years and asked researchers to report their primary subfield and methodology.
+We asked each participant to assess their familiarity with the term ``replicability'' and to provide their own definition. 
+We then provided a definition based on the \citet{nosek2020replication}  to establish a common understanding of replicability for the remainder of the survey.
+Remaining questions assessed the epistomological purpose of a replication (5 questions), factors that impact the chances of successfully replicating a study (18 questions) or the decision to attempt a replication (13 questions), and what portion of the geographic literature has/could/should be replicated (3 questions).
+For researchers who reported attempting reproductions, we asked researcher to elaborate on their motivations and outcomes (9 questions).
+
+We developed the survey questions following a review of prior reproducibility surveys \citep[e.g.,][]{fanelli2009many,baker20161, konkol2019} and our own reading of recurring issues in the reproducibility and replicability literature. 
+We pilot tested the survey instrument with \textit{n}=19 graduate students and geography faculty with differing levels of experience, topical focus, and methodological background. 
+After pilot testing, we removed these individuals from our sampling frame to ensure they would not be included in our final sample.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Data Collection}
+We used a digital form of the Tailored Design Method \citep{dillman2014internet} to survey geographic researchers between May 17 and June 10, 2022.
+A simple random sample of 2,000 researchers was drawn without replacement from our sampling frame, and those researchers were invited via email to participate in the online survey. 
+Researchers received their initial invitation on May 17, 2022. 
+Two reminder emails were sent to researchers that had not yet completed the survey on May 26 and May 31, 2022.
+
+The online survey was administered through \href{https://www.qualtrics.com/}{Qualtrics}. 
+Participation in the survey was entirely voluntary. 
+Each researcher that opted to participate in the survey was provided with IRB approved consent documentation and linked to the internet survey instrument. 
+Participants were also given the option to provide an email address for eligibility for one of three  prizes of 90 US\$, selected randomly after the data collection period.
+Participating researchers had the option to exit and re-enter the survey and were also able to review and change their answers using a back button as they progressed through the survey.
+At the end of the data collection period, responses were checked for completeness and coded using the reporting standards of the American Association For Public Opinion Research \citep{aaporstandards}.
+Responses were downloaded from Qualtrics, anonymized, and stored in a public de-identified database in the research compendium (self-identifying reference removed).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Results}
 A total of \textit{n}=283 of the authors we contacted completed the online survey with information sufficient for analysis. 
 The contact rate for the survey was 17.7 percent, the response rate was 11.3 percent, yielding a cooperation rate of 64.0 percent. 
 The refusal rate was 6.4 percent\endnote{All outcome rates are reported using \citet{aaporstandards} standards. 
@@ -144,7 +203,6 @@ Researchers collectively indicated that only a few study characteristics of phen
 Researcher identified more study characteristics than phenomena characteristics, which may indicate they they are thinking of this through the lens of artifact availability from the prior study and not the nature of the phenomena. 
 A small but notable percentage of researchers indicated that they simply did not know whether a factor would affect chances of replication. 
 
-
 Only a subset of study characteristics were consistently identified by geographic researchers as altering the chances of replicating the claims of a prior study.
 \begin{itemize}
     \item Agreement that quantitative studies are more likely to be replicable (80.6\%)
@@ -164,9 +222,16 @@ Phenomena
     \item Really even distribution on nearly a phenomenon characteristics. Also a decently high percentage of i don't know resposnes for each characteristic. In most cases in the 10-20 percent range. 
 \end{itemize}
 
+
+\begin{center}
+\textbf{Insert Figure \ref{fig:Q8-10-Chances} About Here}
+\end{center}
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Factors that Affect the Decision to Attempt Replications}
-Introductory para summarizing section and introducing Figure 2
+Figure \ref{fig:Q15-DecisionFactors} presents how frequently geographic researchers believe differences in academic incentives (AI), the availability of research artifacts (AA), and study characteristics (SC) affect the decision to attempt to replicate existing geographic research.
+We highlight how often researchers identified a given factor as always or frequently influencing the decision to attempt a replication study and use a 50 percent threshold to indicate factors identified as important by a majority of respondents. 
+Item response rate are included at the right of the figure.
 
 \begin{center}
 \textbf{Insert Figure \ref{fig:Q15-DecisionFactors} About Here}
@@ -178,30 +243,30 @@ Respondents also believed that the perception of replications as low value work 
 Contrary to some narratives in the replication literature, the desire to identify fabricated data or results was not seen as a determining factor in the decision to attempt a replication. 
 However, this finding should be interpreted with caution as a third of our respondents indicated that they did not know whether potential fabrication influenced researcher decision making.  
 
-Artifact Availability
-\begin{itemize}
-    \item See comment hanging off RE. That is the mains story on this one. 
-\end{itemize}
+Survey respondents also identified the availability of research artifacts as another set of factors impacting the decision to attempt replications of geographic research.
+Difficulty accessing and recreating data was the most commonly identified deterrent of replication with 61 percent of respondents naming this factor as frequently or always affecting the replication decision.
+Similarly, a slight majority of respondents (51\%) identified the accessibility of procedural and methodological information as a influencing factor. 
+The challenge of recreating the methods of a prior study elicited a similar response (47\%).
 
-Studt Characteristics
-\begin{itemize}
-    \item The characteristics of a study being replicated or the researcher attempting the replication were seen as less important by our respondents. 
-    \item Respondents did not see ethical concerns as a inhibitor or replication studies.
-\end{itemize}
+No characteristics of the original study, or the potential replication attempt, were identified by a majority of researchers as frequently or always impacting the replication decision. 
+However, a near majority of respondents did identify potential geographic variation in the phenomena being investigated (43\%) and inexperience conducting replication studies (45\%) as influencing researcher decisions to attempt or not attempt replications. 
+Respondents did not see a low chance of successfully replicating a study as a deterrent to attempting a replication, but it is unclear whether this result is driven by a belief in the value of null replication results or the belief that replications in fact have high chances of success.
+Finally, researchers did not identify ethical concerns as a factor affecting the decision to attempt a replication study. 
 
-\begin{center}
-    \textbf{Insert Here Table \ref{tab:motivations}} 
-\end{center}
+Respondents also identified a number of factors that were omitted from our survey instrument. 
+These factors include practical issues such as the difficulty identifying and accessing new field sites where data would be collected during a replication attempt, the costs of conducting a replication, and the time needed to obtain institutional approvals.
+Selected respondents also identified uncertainty about how to compare the  of results of a replication and an prior study as a factor impacting the decision to attempt a replication. 
+Finally, a small number of respondents believe that geographic researchers do not undertake replication studies because they either believe replication is not possible or not necessary in geography. 
+These researchers argued that the main value of geographic studies is that each study provide a unique lens on the portion of the world under investigation, which makes replication a unnecessary endeavour.   
 
-Q16 - Include a presentation of the factors researchers identified that we did not include in the list of barriers.
-\begin{itemize}
-    \item Clerical issues related to field site access, costs, institutional approvals, 
-    \item Lack of conceptual or methodological frameworks (how to measure similarity) to place RPLs in
-    \item RPL is unnecessary in geog - (i) unique lens on world from each study is their main value, (ii) not valued across respondents from several disciplines and approaches.
-    \item Instability of the system being studied across space and time - Replication is not possible in geography because of spatial heterogeneity or the study of one-off events, temporal variation.   
-\end{itemize}
+Respondents from different disciplinary sub-fields and methodological approaches varied little in their identification of the factors affecting researchers' decisions to attempt a replication studies. 
+Human geographers and researchers using quantitative methods less frequently identified academic incentives as important to the replication decision when compared to other sub-groups, but were otherwise broadly similar in their views on artifact availability and study characteristics. 
+A greater percentage of quantitative researchers and those working in the areas of GIScience and Methods identified the accessibility of data and methodological information as more commonly impacting the decision to replicate, but not at a level that was substantially higher than other sub-groups. 
+In fact, a greater percentage of researchers studying nature and society identified data accessibility as important than did methods researchers.  
+Overall, the differences we observed across sub-groups was small and should be interpreted with caution given the sub-group sample sizes.
+We also found that human geographers and qualitative researchers were disproportionately likely to provide 'I do not know' responses across questions,  
+which further decreases the amount of information available about their views and beliefs. 
 
-Q15 - A greater number of HG and QL responded that they did not know across all questions. Majority of QN researchers identified 'diff recreating proc' as impacting replication decision, minority for other groups. MM say 'low val of replication' as less impact on decision. HM and NS linked decision more to data access and recreation, while methods additionally linked to accessibility of methods info.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -284,6 +349,16 @@ This material is based on work supported by the National Science Foundation unde
     \includegraphics[scale=0.5]{results/figures/Fig-Q12-HCS.png}
     \caption{Estimates of the percentage of geographic studies that (a) have been replicated, (b) could be replicated, or (c) should be replicated}
     \label{fig:Q12-HCS}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[scale=0.8]{results/figures/Fig-Q8-10-Chances.png}
+    \caption{Factors affecting the chances of replicating a study. Respondents identified (a) how likely study characteristics were to alter the chances of successfully replicating a study and (b) how likely the characteristics of the phenomenon under investigation were to alter the chances of successfully replicating a study in a new location. Acronyms indicate: artifact accessibility (AA), researcher characteristics (RC), study approach (SA), and phenomenon characteristics (PC); and the percentage of 'don't know' (DK) and missing (M) responses. Unlikely to affect replication chances is omitted, but can be calculated from available data.}
+    \label{fig:Q8-10-Chances}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%
