@@ -5,14 +5,14 @@
   - `1`: Consistent with NASEM definition
 - `Flag_Reasoning`: Justification for the Rep_flag code
 - `open-repeatable`: Is the motivation for the replication to assess how well the study conforms to open science principles? In other words, is the replicating researcher's motivation to answer the question: is the study documentation thorough enough to make a replication study possible?
-  - `1`: Yes
+  - `1`: Yes, emphasizes quality of research as reproducible or repeatable based on publication, code, data, etc.
 - `validate-external`: Is the motivation for the replication to externally validate the claims of the original study by repeating the methods with new data in a new context? The underlying goal may be to evaluate the generalizability of the prior study claims or to check questionable results.
-  - `1`: Yes
+  - `1`: Yes, There is an emphasis on externally validating or generalizing with results from new contexts and studies, or an emphasis on comparing findings / conclusions based on results from new studies. Most definitions including new context and similar results will get this flag.
 - `unique-space-time`: Is the motivation for the replication to assess the significance of unique geographic or temporal contexts? For example, is the researcher motivated by concerns about whether the methods and claims of a study will apply in a new place or time? Is the researcher concerned about geographic or historical differences?
-  - `1`: Yes
+  - `1`: Yes, there is recognition of challenges that spatial / temporal heterogeneity will cause for replication
 - `validate-internal`: Is the motivation for the replication to assess the internal validity of the original study, e.g. by testing the original study's robustness or sensitivity to research design decisions? The underlying goal may be to check questionable results.
-  - `1`: Yes
-- `epistemology`: ...
+  - `1`: Yes, explains replication as a process internal to the research project by repeating and comparing samples/measurements/locations within a population/experiment/landscape, or explicitly references internal validation as a goal of replication through internal repetition, reanalysis, and/or assessment of construct validity.
+- `epistemology`: Is the motivation for replication rooted in epistemological and ontological discussions of replication as fundamental to knowledge creation?
   - `1`: Yes
 - `learning`: Is the motivation for the replication to learn from the prior study? This motivation may be the first step for a researcher seeking to extend a study, to learn current techniques in a field of study, or for teaching or mentoring.
   - `1`: Yes
