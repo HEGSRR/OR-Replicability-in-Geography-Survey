@@ -20,7 +20,3 @@
 - `extension`: Is the motivation for the replication to extend a prior study with improvements in methodology or data?
   - `1`: Yes  
 - `q19-jh`: Notes about coding by Joseph Holler
-
-## Coding Notes
-
-Many definitions are clearly aimed at validating prior findings or attempting to invalidate prior studies perceived to be flawed. However, it is not always clear whether this (in)validation is *internal* or *external*. Furthermore, validation is implicit in any motivations with nods to the epistemological function of replication in science. Therefore, the most reliable analysis of these codes might combine the information from internal validation, external validation, and epistemology. The particular codes may still be useful for additional context or for finding qualitative quotes.
