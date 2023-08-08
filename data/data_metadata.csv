@@ -1,1 +1,6 @@
-file_path,file_name,format,sources,metadata,status,date_saved
+file_path,file_name,metadata_files
+raw/public,raw_hegs_rpl.rds,HEGS-Replicability.qsf; raw/publicraw_rpl_survey_metadata.rds; raw/publicraw_rpl_survey_questions.rds
+raw/public,raw_rpl_survey_metadata.rds,n/a - metadata for raw_hegs_rpl.rds
+raw/public,raw_rpl_survey_questions.rds,n/a - metadata for raw_hegs_rpl.rds
+derived/public,q6…,
+derived/public,q17…,
