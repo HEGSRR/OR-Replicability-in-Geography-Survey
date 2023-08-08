@@ -1,20 +1,17 @@
-<dl>
-
-<dt>
-Rep_flag
-</dt>
-<dd>
-Based on the reason for replication and the definition of replication, does the survey respondent appear to be thinking of replication consistently with the NASEM definition?
-<dt>0</dt>
-<dd>Not consistent with NASEM definition. Possible reasons include internal replication (i.e. multiple tests within a research project/lab) or reproduction (i.e. using same data and methods to achieve identical results)</dd>
-- `1`: Consistent with NASEM definition
-</dd>
-
-<dt>
-Flag_Reasoning
-</dt>
-<dd>
-Justification for the Rep_flag code
-</dd>
-
-</dl>
+- `Rep_flag`: Based on the reason for replication and the definition of replication, does the survey respondent appear to be thinking of replication consistently with the NASEM definition?
+  - `0`: Not consistent with NASEM definition. Possible reasons include internal replication (i.e. multiple tests within a research project/lab) or reproduction (i.e. using same data and methods to achieve identical results)
+  - `1`: Consistent with NASEM definition
+- `Flag_Reasoning`: Justification for the Rep_flag code
+- `open-repeatable`: Is the motivation for the replication to assess how well the study conforms to open science principles? In other words, is the replicating researcher's motivation to answer the question: is the study documentation thorough enough to make a replication study possible?
+  - `1`: Yes
+- `validate-external`: Is the motivation for the replication to externally validate the claims of the original study by repeating the methods with new data in a new context? The underlying goal may be to evaluate the generalizability of the prior study claims or to check questionable results.
+  - `1`: Yes
+- `unique-space-time`: Is the motivation for the replication to assess the significance of unique geographic or temporal contexts? For example, is the researcher motivated by concerns about whether the methods and claims of a study will apply in a new place or time? Is the researcher concerned about geographic or historical differences?
+  - `1`: Yes
+- `validate-internal`: Is the motivation for the replication to assess the internal validity of the original study, e.g. by testing the original study's robustness or sensitivity to research design decisions? The underlying goal may be to check questionable results.
+  - `1`: Yes
+- `epistemology`: ...
+  - `1`: Yes
+- `learning`: Is the motivation for the replication to learn from the prior study? This motivation may be the first step for a researcher seeking to extend a study, to learn current techniques in a field of study, or for teaching or mentoring.
+  - `1`: Yes
+- `q19-jh`: Notes about coding by Joseph Holler
