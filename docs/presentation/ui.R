@@ -179,11 +179,46 @@ tagList(
       ),
     ),
 
-    # Practices ####
+    # Factors ####
     tabPanel(
-      "Practices",
+      "Factors",
       icon = icon("lightbulb"),
-      p("practices"),
+      tabsetPanel(
+        id = "factors_panel",
+        tabPanel(
+          "The study",
+          fluidRow(
+            column(
+              12,
+              # col-sm-12
+              class = "col-xxl-8",
+              h4(
+                "How do each of the following characteristics of a",
+                strong("study"), "published in your sub-field",
+                "affect the chances of replicating that study?"
+                ),
+              plotlyOutput("q8", height = plot_full_height) %>% spin(),
+            ),
+          ),
+        ),
+        tabPanel(
+          "The phenomenon",
+          fluidRow(
+            column(
+              12,
+              # col-sm-12
+              class = "col-xxl-8",
+              h4(
+                "How do each of the following characteristics of the",
+                 strong("phenomenon"), "being examined",
+                 "affect the chances of replicating a study",
+                "in your sub-field in a different location from the prior study?"
+                 ),
+              plotlyOutput("q10", height = plot_height) %>% spin(),
+            ),
+          ),
+        ),
+      ),
     ),
 
     # Opinions ####

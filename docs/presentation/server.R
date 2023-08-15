@@ -17,6 +17,7 @@ function(input, output, session) {
     bindCache(input$group) %>%
     bindEvent(input$group)
 
+
   # Q5 plots ####
   output$q5 <- renderPlotly({
     fig1 <- d() %>%
@@ -155,121 +156,66 @@ function(input, output, session) {
 
   # Q17 practices ####
   output$q17 <- renderPlotly({
-    plt <- d() %>%
-      pivot_longer(starts_with("Q17_"), values_to = "Response") %>%
-      group_by(name) %>%
-      mutate(
-        Response = fct_na_value_to_level(fct_rev(Response), "No response")
-      ) %>%
-      dplyr::count(Response) %>%
-      mutate(perc = n / sum(n)) %>%
-      ggplot(aes(
-        x = fct_rev(name),
-        y = n,
-        fill = Response,
-        text = paste0(
-          "<b>", Response, "</b><br>",
-          n, " people<br>",
-          round(perc * 100, 2), " %"
-        )
-      )) +
-      geom_col(
-        position = position_fill(reverse = TRUE),
-        width = 0.8
-      ) +
-      coord_flip() +
-      scale_fill_manual(
-        values = c("#EF5645", "#D9D9D9", "#F2F2F2", "#7F7F7F")
-      ) +
-      scale_x_discrete(
-        expand = c(0, 0),
-        labels = str_wrap(rev(q17_text), width = 40)
-      ) +
-      scale_y_continuous(labels = scales::percent) +
-      theme(
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.line.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        panel.border = element_blank(),
-        panel.background = element_blank(),
-        text = element_text(family = "Fira Sans"),
-        legend.position = "bottom",
-        legend.title = element_blank()
-      )
-    # plotly
-    ggplotly(plt, tooltip = "text") %>%
-      plt_layout(
-        legend = list(font = fira)
-      ) %>%
-      plt_config(
-        filename = paste0(
+    d() %>%
+      plt_bar(
+        "Q17_", q17_text, pal4,
+        paste0(
           "repli_practices_",
           input$group %>%
             tolower() %>%
             gsub("[^a-z0-9]", "_", .)
         )
       )
-  })
+  }) %>%
+    bindCache(input$group)
+
 
   # Q15 barriers ####
   output$q15 <- renderPlotly({
-    plt <- d() %>%
-      pivot_longer(starts_with("Q15"), values_to = "Response") %>%
-      group_by(name) %>%
-      mutate(
-        Response = fct_na_value_to_level(Response, "No response"),
-      ) %>%
-      dplyr::count(Response) %>%
-      mutate(perc = n / sum(n)) %>%
-      ggplot(aes(
-        x = fct_rev(name),
-        y = n,
-        fill = Response,
-        text = paste0(
-          "<b>", Response, "</b><br>",
-          n, " people<br>",
-          round(perc * 100, 2), " %"
-        )
-      )) +
-      geom_col(
-        position = position_fill(reverse = TRUE),
-        width = 0.8
-      ) +
-      coord_flip() +
-      scale_fill_manual(
-        values = c("#CD2311", "#EF5645", "#EE947D", "#D9D9D9", "#F2F2F2", "#7F7F7F", "#7F7F7F")
-      ) +
-      scale_x_discrete(
-        expand = c(0, 0),
-        labels = str_wrap(rev(q15_text), width = 40)
-      ) +
-      scale_y_continuous(labels = scales::percent) +
-      theme(
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.line.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        panel.border = element_blank(),
-        panel.background = element_blank(),
-        text = element_text(family = "Fira Sans"),
-        legend.position = "bottom",
-        legend.title = element_blank()
-      )
-    # plotly
-    ggplotly(plt, tooltip = "text") %>%
-      plt_layout(
-        legend = list(font = fira)
-      ) %>%
-      plt_config(
-        filename = paste0(
+    d() %>%
+      plt_bar(
+        "Q15", q15_text, pal7,
+        paste0(
           "repli_barriers_",
           input$group %>%
             tolower() %>%
             gsub("[^a-z0-9]", "_", .)
         )
       )
-  })
+  }) %>%
+    bindCache(input$group)
+
+
+  # Q8 characteristics of study ####
+  output$q8 <- renderPlotly({
+    d() %>%
+      plt_bar(
+        "Q8", q8_text, pal7,
+        paste0(
+          "repli_study_factors_",
+          input$group %>%
+            tolower() %>%
+            gsub("[^a-z0-9]", "_", .)
+        )
+      )
+  }) %>%
+    bindCache(input$group)
+
+  # Q10 phenomenon ####
+  output$q10 <- renderPlotly({
+    d() %>%
+      plt_bar(
+        "Q10", q10_text, pal7,
+        paste0(
+          "repli_phenomenon_",
+          input$group %>%
+            tolower() %>%
+            gsub("[^a-z0-9]", "_", .)
+        )
+      )
+  }) %>%
+    bindCache(input$group)
+
 
   # Q6 & Q10 word clouds ####
   output$cloud_q6 <- renderWordcloud2(clouds_q6[[input$group]])
