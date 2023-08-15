@@ -1,8 +1,4 @@
-# Title of Study
-
-This study is a reproduction/replication of:
-
-> Insert full citation to original study
+# A Survey of Reproducibility in Geographic Research
 
 ## Abstract
 
@@ -10,19 +6,19 @@ This study is a reproduction/replication of:
 
 ## Authors
 
-- First Name, Last Name
-- First Name, Last Name
+- Peter Kedron
+- Joseph Holler
+- Sarah Bardin
 
 ## Repository Documents
 
 > Link your reports, manuscripts, presentations, publication DOIs, preregistrations, etc. here. Delete this instruction and unused list items from your final repository. Adjust the file names and paths and add additional items as necessary.
 
-- Preregistration: https://osf.io/my_study
-- Publication: https://doi.org/my_study
-- Pre-analysis plan: [docs/report/preanalysis.pdf](docs/report/preanalysis.pdf)
-- Study report: [docs/report/report.pdf](docs/report/report.pdf)
+- Preregistration: https://doi.org/10.17605/OSF.IO/A4NWG
+- Preprint:
+- Data Visualization:
+- Publication: 
 - Manuscript: [docs/manuscript/manuscript.pdf](docs/manuscript/manuscript.pdf)
-- Presentation: [docs/presentation/presentation.pdf](docs/presentation/presentation.pdf)
 
 ## Repository Contents
 

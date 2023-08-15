@@ -1,0 +1,223 @@
+---
+title: "Preprocessing"
+output: 
+  html_document:
+    theme: flatly
+    df_print: paged
+date: "2023-07-12"
+---
+
+Making sense of the survey data.
+
+```{r import, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  fig.retina = 4,
+  fig.showtext = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+
+# all your themes are belong to us
+# library(ggthemes)
+library(tidyverse)
+library(magrittr)
+library(showtext)
+font_add_google("Fira Sans", "Fira Sans")
+```
+
+```{r data}
+analysis <- readRDS("../../data/derived/public/analysis_hegs_rpl.rds")
+source("data/constants.R")
+```
+
+## Groups
+
+Dropping NAs for brevity
+
+```{r drop na}
+analysis %<>%
+  drop_na(Q3_recoded, Q4_quantqual) %>%
+  filter(Q3_recoded != "Other")
+```
+
+
+Question 3: primary subfield of research
+
+```{r q3 groups}
+analysis %>%
+  group_by(Q3_recoded) %>%
+  summarise(n = n())
+```
+
+Question 4: type of research
+
+```{r q4 groups}
+analysis %>%
+  group_by(Q4_quantqual) %>%
+  summarise(n = n())
+```
+
+## Word cloud
+
+Q6
+Q10
+
+```{r DRY wordcloud}
+column_to_cloud <- function(
+    col, nrows = 30,
+    data = analysis,
+    my_palette = c(
+      "#cdb4db",
+      "#6d597a",
+      "#b56576",
+      "#e56b6f",
+      "#eaac8b"
+    )) {
+  require(tidytext)
+  word_counts <- data %>%
+    drop_na(all_of(col)) %>%
+    unnest_tokens("word", col) %>%
+    # https://bookdown.org/psonkin18/berkshire/tokenize.html#text-normalization---stemming-and-lemmatization
+    # doesn't work - why is `reproduct` different from `reproduc`?
+    # mutate(word = SnowballC::wordStem(word, language = "english")) %>%
+    anti_join(stop_words, by = "word") %>%
+    count(word) %>%
+    arrange(desc(n)) %>%
+    slice(1:nrows)
+
+  require(wordcloud2)
+  wordcloud2(
+    word_counts,
+    color = rep_len(
+      my_palette,
+      nrow(word_counts)
+    )
+  ) %>%
+    return()
+}
+```
+
+```{r word clouds}
+clouds <- map(cloud_cols, column_to_cloud) %>%
+  set_names(cloud_cols)
+# saveRDS(clouds, file = "data/clouds.rds")
+```
+
+```{r q6 cloud}
+clouds_q6_q3 <- map(
+  subfields, ~ analysis %>%
+    filter(Q3_recoded == .x) %>%
+    column_to_cloud("Q6_definition", data = .)
+) %>%
+  set_names(subfields)
+
+clouds_q6_q4 <- map(
+  types, ~ analysis %>%
+    filter(Q4_quantqual == .x) %>%
+    column_to_cloud("Q6_definition", data = .)
+) %>%
+  set_names(types)
+
+clouds_q6 <- append(clouds_q6_q3, clouds_q6_q4)
+clouds_q6$Everyone <- clouds$Q6_definition
+saveRDS(clouds_q6, file = "data/clouds_q6.rds")
+```
+
+```{r q19 cloud}
+clouds_q19_q3 <- map(
+  subfields, ~ analysis %>%
+    filter(Q3_recoded == .x) %>%
+    column_to_cloud("Q19_reason_for_rep", data = .)
+) %>%
+  set_names(subfields)
+
+clouds_q19_q4 <- map(
+  types, ~ analysis %>%
+    filter(Q4_quantqual == .x) %>%
+    column_to_cloud("Q19_reason_for_rep", data = .)
+) %>%
+  set_names(types)
+
+clouds_q19 <- append(clouds_q19_q3, clouds_q19_q4)
+clouds_q19$Everyone <- clouds$Q19_reason_for_rep
+saveRDS(clouds_q19, file = "data/clouds_q19.rds")
+```
+
+## Bar charts
+Order Q5
+```{r}
+analysis %<>%
+  mutate(across(all_of(four_level_cols), ~ factor(., levels = four_levels)))
+```
+
+TODO: Rename Q6 labels
+```{r eval=FALSE, include=FALSE}
+analysis %<>%
+  mutate(label = case_match(
+    label,
+    "Omit" ~ NA,
+    "Standard" ~ "Assess Prior Work",
+    "Experiment" ~ "Repeatable Experiments",
+    "Data Collection" ~ "Data Collection",
+    "Transparency/Extension" ~ "Transparency/Extension"
+  ))
+```
+
+
+## Q7 Likert
+```{r}
+q7_to_likert <- function(data = analysis) {
+  data %>%
+    # make data for likert
+    pivot_longer(cols = starts_with("Q7_value_")) %>%
+    group_by(name, value) %>%
+    summarise(n = n()) %>%
+    mutate(value = factor(value, levels = agree_levels)) %>%
+    replace_na(list(value = "Don't know")) %>%
+    group_by(name) %>%
+    mutate(perc = n / sum(n)) %>%
+    mutate(
+      yeah = ifelse(any(value == "Agree"), perc[value == "Agree"], 0),
+      idk = ifelse(any(value == "Don't know"), perc[value == "Don't know"] / 2, 0),
+      nah = ifelse(any(value == "Disagree"), perc[value == "Disagree"], 0),
+      start = case_match(
+        value,
+        "Strongly agree" ~ yeah + idk,
+        "Agree" ~ idk,
+        "Don't know" ~ -idk,
+        "Disagree" ~ -idk - perc,
+        "Strongly disagree" ~ -idk - nah - perc,
+      )
+    ) %>%
+    ungroup() %>%
+    dplyr::select(-c(yeah, nah, idk))
+}
+```
+
+
+```{r Q8}
+q7_q3 <- map(
+  subfields, ~ analysis %>%
+    filter(Q3_recoded == .x) %>%
+    q7_to_likert()
+) %>%
+  set_names(subfields)
+
+q7_q4 <- map(
+  types, ~ analysis %>%
+    filter(Q4_quantqual == .x) %>%
+    q7_to_likert()
+) %>%
+  set_names(types)
+
+q7 <- append(q7_q3, q7_q4)
+q7$Everyone <- q7_to_likert()
+saveRDS(q7, file = "data/q7.rds")
+```
+
+
+## Save
+```{r}
+analysis %>%
+  saveRDS("data/analysis.rds")
+```

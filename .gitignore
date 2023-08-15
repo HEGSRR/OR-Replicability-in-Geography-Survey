@@ -79,3 +79,9 @@ $RECYCLE.BIN/
 # Geopackage temporary files
 *.gpkg-shm
 *.gpkg-wal
+
+# Icloud
+*.icloud
+
+# Posit Connect
+rsconnect/
