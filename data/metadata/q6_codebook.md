@@ -1,0 +1,49 @@
+# Data Dictionary for Q6 Coding
+
+- `Exclude`: Is there enough information in the qualitative definition of replicability to code for the respondents understanding of the term *vis a vis* the formal NASEM (2019) definition?
+- `replicable-nasem`: This calculated variable adds codes implying similarity to the NASEM definition of *replication* and subtracts codes implying similarity to the NASEM definition of *reproduction*, yielding a score of the possible domain [-4, 4] where negative numbers indicate definitions more closely associated with *reproduction* and positive numbers indicate definitions more closely associated with *replication*.
+  - The formula is:  
+  `(data-new +	methods-same + context-new + result-similar) -  
+  (data-same +	methods-varied + context-same +	result-same)`
+- `data-new`: Does the definition mention or strongly imply the use or collection of new data?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `methods-same`: Does the definition mention or strongly imply applying the same methods as the prior study?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `context-new`: Does the definition mention or strongly imply repeating the prior study in a new spatial or temporal context?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `result-similar`: Does the definition mention an expectation of recreating similar results or findings as a prior study?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `data-same`: Does the definition mention or strongly imply using the same data as a prior study?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `methods-varied`: Does the definition mention or strongly imply applying varied methods compared to the prior study?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `context-same`: Does the definition mention or strongly imply repeating a prior study in the same spatial or temporal context?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `result-same`: Does the definition mention an expectation of recreating the same (identical) results as a prior study?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `open-repeatable`: Does the definition mention motivation to assess or to improve how well the prior study conforms to open science principles?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `validate-external`: Does the definition mention motivation for the replication to externally validate the claims of the original study by repeating the methods with new data in a new context?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `unique-space-time`: Does the definition mention or imply motivation for the replication to assess the significance of unique geographic or temporal contexts?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `validate-internal`: Does the definition mention motivation for the replication to assess the internal validity of the original study?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `epistemology`: Is the motivation or rejection of replication rooted in epistemological and ontological discussions about the relevance of replication for knowledge production?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `reproduction`: Does the definition more closely match the formal NASEM definition of a reproduction study than it does a replication study?
+  - `NA`: Not applicable
+  - `1`: Yes
