@@ -76,7 +76,7 @@ int_hegs_rpl <- int_hegs_rpl %>%
   mutate(Q25_recoded = as.factor(ifelse(toupper(Q25_title_9_TEXT) %in% res_scientist, 5, 
                                  ifelse(toupper(Q25_title_9_TEXT) == "Lecturer/teacher at a university of applied sciences.", 2, Q25_title))))
 
-levels(int_hegs_rpr$Q25_recoded) <- c("Full professor/lecturer",
+levels(int_hegs_rpl$Q25_recoded) <- c("Full professor/lecturer",
                                       "Associate professor/lecturer",
                                       "Assistant professor/lecturer",
                                       "Laboratory director/head",
@@ -149,5 +149,14 @@ analysis_hegs_rpl %>%
   write.csv(here("data","derived","public","q6_coding.csv"))
 
 ## load completed coding and join new fields to analysis_hegs_rpl
+q6_coding <- read.csv(here("data", "derived", "public", "q6_coding_final.csv"))
 
-saveRDS(int_hegs_rpl, here("data","derived","public","analysis_hegs_rpl.rds"))
+q6_coding <- q6_coding %>%
+  select(!c(RowID, Q6_definition)) %>%
+  rename_with(~ paste0("coded_Q6_", .), .cols = !ResponseId)
+
+int_hegs_rpl <- int_hegs_rpl %>%
+  full_join(q6_coding, by = "ResponseId")
+
+
+saveRDS(int_hegs_rpl, here("data", "derived", "public", "analysis_hegs_rpl.rds"))
