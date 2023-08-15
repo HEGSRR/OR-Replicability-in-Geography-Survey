@@ -17,14 +17,14 @@
 - Preregistration: https://doi.org/10.17605/OSF.IO/A4NWG
 - Preprint:
 - Data Visualization:
-- Publication: 
+- Publication:
 - Manuscript: [docs/manuscript/manuscript.pdf](docs/manuscript/manuscript.pdf)
 
 ## Repository Contents
 
 The contents of this repository are outlined in three tables:
-- Data: [data/data_metadata.csv](data/data_metadata.csv)
-- Procedures: [procedure/procedure_metadata.csv](procedure/procedure_metadata.csv)
-- Results: [results/results_metadata.csv](results/results_metadata.csv)
+- Data: [data/data_index.csv](data/data_index.csv)
+- Procedures: [procedure/procedure_index.csv](procedure/procedure_index.csv)
+- Results: [results/results_index.csv](results/results_index.csv)
 
 The [template_readme.md](template_readme.md) file contains more information on structure and rationale of this research template repository, as well as important references and licenses.
