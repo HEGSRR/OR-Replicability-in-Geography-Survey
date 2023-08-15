@@ -14,6 +14,35 @@ geo_groups <- list(
 four_levels <- c("Not at all", "Very little", "Somewhat", "To a great extent")
 four_level_cols <- c("Q5_familiarity")
 
+# Q6 motivations ####
+q6_motive <- c(
+  "Open & Repeatable" = "coded_Q6_open.repeatable",
+  "External Validation" = "coded_Q6_validate.external",
+  "Geographic Variation" = "coded_Q6_unique.space.time"
+)
+
+# Q6 terms ###
+q6_terms_pos <- c(
+  "New data" = "coded_Q6_data.new",
+  "Same methods" = "coded_Q6_methods.same",
+  "New context" = "coded_Q6_context.new",
+  "Similar result" = "coded_Q6_result.similar"
+)
+
+q6_terms_neg <- c(
+  "Same data" = "coded_Q6_data.same",
+  "Varied methods" = "coded_Q6_methods.varied",
+  "Same context" = "coded_Q6_context.same",
+  "Same result" = "coded_Q6_result.same"
+)
+
+q6_plot_order <- c(
+  "New data", "Same data",
+  "Same methods", "Varied methods",
+  "New context", "Same context",
+  "Similar result", "Same result"
+)
+
 # Q7 Levels of agreement ####
 agree_levels <- c("Strongly disagree", "Disagree", "Don't know", "Agree", "Strongly agree")
 

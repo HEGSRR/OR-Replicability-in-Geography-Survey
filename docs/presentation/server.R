@@ -30,13 +30,57 @@ function(input, output, session) {
         hovertemplate = "<b>%{x}</b>\n%{y} people<extra></extra>"
       )
 
-    fig2 <- plot_ly(
-      type = "bar"
-    )
+    neg <- d() %>%
+      select(all_of(q6_terms_neg)) %>%
+      pivot_longer(cols = everything()) %>%
+      filter(value != 0) %>%
+      group_by(name) %>%
+      summarise(n = n()) %>%
+      mutate(name = str_wrap(name, width = width))
 
-    fig3 <- plot_ly(
-      type = "bar"
-    )
+    fig2 <- d() %>%
+      select(all_of(q6_terms_pos)) %>%
+      pivot_longer(cols = everything()) %>%
+      filter(value != 0) %>%
+      group_by(name) %>%
+      summarise(n = n()) %>%
+      mutate(name = str_wrap(name, width = width)) %>%
+      plot_ly(
+        x = ~name,
+        y = ~n,
+        type = "bar",
+        name = "Replicability",
+        hovertemplate = "<b>%{x}</b>\n%{y} people<extra></extra>"
+      ) %>%
+      add_trace(
+        x = ~ neg$name,
+        y = ~ neg$n,
+        base = ~ -neg$n,
+        meta = ~ neg$n,
+        type = "bar",
+        name = "Reproducibility",
+        hovertemplate = "<b>%{x}</b>\n%{meta} people<extra></extra>"
+      ) %>%
+      layout(xaxis = list(
+        categoryorder = "array",
+        categoryarray = q6_plot_order
+      ))
+
+
+    fig3 <- d() %>%
+      select(all_of(q6_motive)) %>%
+      pivot_longer(cols = everything()) %>%
+      filter(value != 0) %>%
+      group_by(name) %>%
+      summarise(n = n()) %>%
+      mutate(name = str_wrap(name, width = width)) %>%
+      plot_ly(
+        x = ~name,
+        y = ~n,
+        type = "bar",
+        # name = "Familiar",
+        hovertemplate = "<b>%{x}</b>\n%{y} people<extra></extra>"
+      )
 
     plotly::subplot(fig1, fig2, fig3, nrows = 1, shareY = TRUE) %>%
       plt_layout(showlegend = FALSE) %>%
@@ -124,7 +168,8 @@ function(input, output, session) {
         type = "scatter",
         mode = "lines",
         fill = "tozeroy",
-        name = "Could be"
+        name = "Could be",
+        line = list(dash = "dash")
       ) %>%
       add_trace(
         x = ~ q14$x,
@@ -132,7 +177,8 @@ function(input, output, session) {
         type = "scatter",
         mode = "lines",
         fill = "tozeroy",
-        name = "Should be"
+        name = "Should be",
+        line = list(dash = "dot")
       ) %>%
       plt_layout(
         legend = list(font = fira)
