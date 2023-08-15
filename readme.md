@@ -1,4 +1,4 @@
-# Replicability in Geography: A Survey of Researchers
+# A Survey of Reproducibility in Geographic Research
 
 ## Abstract
 
