@@ -196,7 +196,7 @@ tagList(
                 "How do each of the following characteristics of a",
                 strong("study"), "published in your sub-field",
                 "affect the chances of replicating that study?"
-                ),
+              ),
               plotlyOutput("q8", height = plot_full_height) %>% spin(),
             ),
           ),
@@ -210,10 +210,10 @@ tagList(
               class = "col-xxl-8",
               h4(
                 "How do each of the following characteristics of the",
-                 strong("phenomenon"), "being examined",
-                 "affect the chances of replicating a study",
+                strong("phenomenon"), "being examined",
+                "affect the chances of replicating a study",
                 "in your sub-field in a different location from the prior study?"
-                 ),
+              ),
               plotlyOutput("q10", height = plot_height) %>% spin(),
             ),
           ),
@@ -227,6 +227,21 @@ tagList(
       icon = icon("comments"),
       tabsetPanel(
         id = "op_panel",
+        tabPanel(
+          "Published results",
+          fluidRow(
+            column(
+              12,
+              # col-sm-12
+              class = "col-xxl-8",
+              h4(
+                "Please estimate the percentage of recent studies",
+                "published in your sub-field that ... replicated.",
+              ),
+              plotlyOutput("q12", height = plot_height) %>% spin(),
+            ),
+          ),
+        ),
         tabPanel(
           "Views",
           fluidRow(
@@ -243,21 +258,6 @@ tagList(
                 "assess whether a prior study's ...",
               ),
               plotlyOutput("q7", height = plot_height) %>% spin(),
-            ),
-          ),
-        ),
-        tabPanel(
-          "Published results",
-          fluidRow(
-            column(
-              12,
-              # col-sm-12
-              class = "col-xxl-8",
-              h4(
-                "Please estimate the percentage of recent studies",
-                "published in your sub-field that ... replicated.",
-              ),
-              plotlyOutput("q12", height = plot_height) %>% spin(),
             ),
           ),
         ),
