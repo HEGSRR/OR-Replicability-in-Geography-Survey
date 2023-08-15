@@ -157,6 +157,9 @@ function(input, output, session) {
   # Q17 practices ####
   output$q17 <- renderPlotly({
     d() %>%
+      mutate(
+        across(starts_with("Q17"), fct_rev)
+      ) %>%
       plt_bar(
         "Q17_", q17_text, pal4,
         paste0(
