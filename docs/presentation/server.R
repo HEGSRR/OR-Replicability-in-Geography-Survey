@@ -117,7 +117,7 @@ function(input, output, session) {
       scale_color_manual("Response", values = pal, guide = "legend") +
       labs(title = "", y = "Percent", x = "") +
       scale_x_discrete(
-        labels = str_wrap(rev(q7_text), width = 40)
+        labels = str_wrap(rev(q7_text), width = width_long)
       ) +
       scale_y_continuous(labels = scales::percent) +
       theme_minimal() +
@@ -207,7 +207,7 @@ function(input, output, session) {
         across(starts_with("Q17"), fct_rev)
       ) %>%
       plt_bar(
-        "Q17_", q17_text, pal4,
+        "Q17_", q17_text, pal4, width_long,
         paste0(
           "repli_practices_",
           input$group %>%
@@ -223,7 +223,7 @@ function(input, output, session) {
   output$q15 <- renderPlotly({
     d() %>%
       plt_bar(
-        "Q15", q15_text, pal7,
+        "Q15", q15_text, pal7, width_long,
         paste0(
           "repli_barriers_",
           input$group %>%
@@ -239,7 +239,7 @@ function(input, output, session) {
   output$q8 <- renderPlotly({
     d() %>%
       plt_bar(
-        "Q8", q8_text, pal7,
+        "Q8", q8_text, pal7, width_long,
         paste0(
           "repli_study_factors_",
           input$group %>%
@@ -254,7 +254,7 @@ function(input, output, session) {
   output$q10 <- renderPlotly({
     d() %>%
       plt_bar(
-        "Q10", q10_text, pal7,
+        "Q10", q10_text, pal7, width_long,
         paste0(
           "repli_phenomenon_",
           input$group %>%

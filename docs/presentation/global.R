@@ -22,6 +22,7 @@ plot_full_height <- "80vh"
 
 # text width for axis labels
 width <- 20
+width_long <- 32
 
 # spinner
 spin <- function(plt) {
