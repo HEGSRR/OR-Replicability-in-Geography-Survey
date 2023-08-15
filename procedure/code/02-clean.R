@@ -148,4 +148,6 @@ analysis_hegs_rpl %>%
   select(c("ResponseId","Q6_definition")) %>% 
   write.csv(here("data","derived","public","q6_coding.csv"))
 
+## load completed coding and join new fields to analysis_hegs_rpl
+
 saveRDS(int_hegs_rpl, here("data","derived","public","analysis_hegs_rpl.rds"))
