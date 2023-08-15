@@ -37,9 +37,7 @@ tagList(
           # col-sm-12
           class = "col-lg-10 col-xl-8 col-xxl-6",
           style = "margin-left: 3vw;",
-          markdown(
-            ""
-          ),
+          markdown(about),
         ),
       ),
     ),
