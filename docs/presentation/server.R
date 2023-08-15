@@ -50,16 +50,17 @@ function(input, output, session) {
         y = ~n,
         type = "bar",
         name = "Replicability",
+        # https://plotly.com/r/bar-charts/#:~:text=I(%22black%22)
+        color = I("#2ca02c"),
         hovertemplate = "<b>%{x}</b>\n%{y} people<extra></extra>"
       ) %>%
       add_trace(
         x = ~ neg$name,
         y = ~ neg$n,
-        base = ~ -neg$n,
-        meta = ~ neg$n,
         type = "bar",
         name = "Reproducibility",
-        hovertemplate = "<b>%{x}</b>\n%{meta} people<extra></extra>"
+        color = I("#ff7f0e"),
+        hovertemplate = "<b>%{x}</b>\n%{y} people<extra></extra>"
       ) %>%
       layout(xaxis = list(
         categoryorder = "array",
