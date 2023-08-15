@@ -161,7 +161,7 @@ plt_config <- function(plt, filename, ...) {
 
 
 # Function for bar plots
-plt_bar <- function(data, prefix, names, pal, filename) {
+plt_bar <- function(data, prefix, names, pal, label_width, filename) {
   plt <- data %>%
     pivot_longer(starts_with(prefix), values_to = "Response") %>%
     group_by(name) %>%
@@ -190,7 +190,7 @@ plt_bar <- function(data, prefix, names, pal, filename) {
     ) +
     scale_x_discrete(
       expand = c(0, 0),
-      labels = str_wrap(rev(names), width = 40)
+      labels = str_wrap(rev(names), width = label_width)
     ) +
     scale_y_continuous(labels = scales::percent) +
     theme(
