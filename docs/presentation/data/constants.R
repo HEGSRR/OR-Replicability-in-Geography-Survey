@@ -55,6 +55,13 @@ q7_text <- c(
   Q7_value_5 = "Claim will hold in other locations"
 )
 
+# Q8 & Q10 levels ####
+likely_levels <- c(
+  "Very likely to decrease", "Somewhat likely to decrease",
+  "Not likely to affect",
+  "Somewhat likely to increase", "Very likely to increase"
+)
+
 # Q8 questions text ####
 q8_text <- c(
   Q8_study_factors_1 = "Multiple hypotheses were tested",
@@ -160,7 +167,7 @@ plt_config <- function(plt, filename, ...) {
 }
 
 
-# Function for bar plots
+# Function for bar plots ####
 plt_bar <- function(data, prefix, names, pal, label_width, filename) {
   plt <- data %>%
     pivot_longer(starts_with(prefix), values_to = "Response") %>%
@@ -212,4 +219,41 @@ plt_bar <- function(data, prefix, names, pal, label_width, filename) {
     plt_config(
       filename = filename
     )
+}
+
+# Function for likert plots ####
+plt_likert <- function(data, names, pal, label_width, filename) {
+  plt <- data %>%
+    # ggplot
+    ggplot() +
+    geom_segment(aes(
+      x = fct_rev(name),
+      y = start,
+      xend = name, yend = start + perc,
+      colour = value,
+      text = paste0(
+        "<b>", value, "</b><br>",
+        n, " people<br>",
+        round(perc * 100, 2), " %"
+      )
+    ), linewidth = 12) +
+    geom_hline(yintercept = 0, color = c("#646464")) +
+    coord_flip() +
+    scale_color_manual("Response", values = pal, guide = "legend") +
+    labs(title = "", y = "Percent", x = "") +
+    scale_x_discrete(
+      labels = str_wrap(rev(names), width = label_width)
+    ) +
+    scale_y_continuous(labels = scales::percent) +
+    theme_minimal() +
+    theme(
+      panel.grid.major.y = element_blank(),
+      panel.grid.minor.y = element_blank()
+    )
+  # plotly
+  ggplotly(plt, tooltip = "text") %>%
+    plt_layout(
+      legend = list(font = fira)
+    ) %>%
+    plt_config(filename = filename)
 }

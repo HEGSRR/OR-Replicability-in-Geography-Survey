@@ -115,7 +115,7 @@ tagList(
             column(
               12,
               # col-sm-12
-              class = "col-xxl-8",
+              class = "col-xxl-10",
               h4(
                 "How do each of the following characteristics of a",
                 strong("study"), "published in your sub-field",
@@ -131,7 +131,7 @@ tagList(
             column(
               12,
               # col-sm-12
-              class = "col-xxl-8",
+              class = "col-xxl-10",
               h4(
                 "How do each of the following characteristics of the",
                 strong("phenomenon"), "being examined",

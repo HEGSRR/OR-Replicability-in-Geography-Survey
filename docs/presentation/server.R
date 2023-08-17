@@ -99,40 +99,10 @@ function(input, output, session) {
 
   # Q7 likert ####
   output$q7 <- renderPlotly({
-    plt <- q7[[input$group]] %>%
-      # ggplot
-      ggplot() +
-      geom_segment(aes(
-        x = fct_rev(name),
-        y = start,
-        xend = name, yend = start + perc,
-        colour = value,
-        text = paste0(
-          "<b>", value, "</b><br>",
-          n, " people<br>",
-          round(perc * 100, 2), " %"
-        )
-      ), linewidth = 12) +
-      geom_hline(yintercept = 0, color = c("#646464")) +
-      coord_flip() +
-      scale_color_manual("Response", values = pal, guide = "legend") +
-      labs(title = "", y = "Percent", x = "") +
-      scale_x_discrete(
-        labels = str_wrap(rev(q7_text), width = width_long)
-      ) +
-      scale_y_continuous(labels = scales::percent) +
-      theme_minimal() +
-      theme(
-        panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank()
-      )
-    # plotly
-    ggplotly(plt, tooltip = "text") %>%
-      plt_layout(
-        legend = list(font = fira)
-      ) %>%
-      plt_config(
-        filename = paste0(
+    gen$q7[[input$group]] %>%
+      plt_likert(
+        q7_text, pal, width_long,
+        paste0(
           "repli_views_",
           input$group %>%
             tolower() %>%
@@ -238,9 +208,9 @@ function(input, output, session) {
 
   # Q8 characteristics of study ####
   output$q8 <- renderPlotly({
-    d() %>%
-      plt_bar(
-        "Q8", q8_text, pal7, width_long,
+    gen$q8[[input$group]] %>%
+      plt_likert(
+        q8_text, pal, width_long,
         paste0(
           "repli_study_factors_",
           input$group %>%
@@ -253,9 +223,9 @@ function(input, output, session) {
 
   # Q10 phenomenon ####
   output$q10 <- renderPlotly({
-    d() %>%
-      plt_bar(
-        "Q10", q10_text, pal7, width_long,
+    gen$q10[[input$group]] %>%
+      plt_likert(
+        q10_text, pal, width_long,
         paste0(
           "repli_phenomenon_",
           input$group %>%
@@ -268,6 +238,6 @@ function(input, output, session) {
 
 
   # Q6 & Q10 word clouds ####
-  output$cloud_q6 <- renderWordcloud2(clouds_q6[[input$group]])
-  output$cloud_q19 <- renderWordcloud2(clouds_q19[[input$group]])
+  output$cloud_q6 <- renderWordcloud2(gen$q6[[input$group]])
+  output$cloud_q19 <- renderWordcloud2(gen$q19[[input$group]])
 }

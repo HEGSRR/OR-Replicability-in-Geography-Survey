@@ -42,7 +42,4 @@ source("data/constants.R")
 
 # load data ####
 analysis <- readRDS("data/analysis.rds")
-
-clouds_q6 <- readRDS("data/clouds_q6.rds")
-clouds_q19 <- readRDS("data/clouds_q19.rds")
-q7 <- readRDS("data/q7.rds")
+gen <- readRDS("data/generated.rds")

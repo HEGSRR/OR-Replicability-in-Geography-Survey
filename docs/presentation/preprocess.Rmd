@@ -28,6 +28,8 @@ font_add_google("Fira Sans", "Fira Sans")
 ```{r data}
 analysis <- readRDS("../../data/derived/public/analysis_hegs_rpl.rds")
 source("data/constants.R")
+
+gen <- list()
 ```
 
 ## Groups
@@ -118,9 +120,8 @@ clouds_q6_q4 <- map(
 ) %>%
   set_names(types)
 
-clouds_q6 <- append(clouds_q6_q3, clouds_q6_q4)
-clouds_q6$Everyone <- clouds$Q6_definition
-saveRDS(clouds_q6, file = "data/clouds_q6.rds")
+gen$q6 <- append(clouds_q6_q3, clouds_q6_q4)
+gen$q6$Everyone <- clouds$Q6_definition
 ```
 
 ```{r q19 cloud}
@@ -138,9 +139,8 @@ clouds_q19_q4 <- map(
 ) %>%
   set_names(types)
 
-clouds_q19 <- append(clouds_q19_q3, clouds_q19_q4)
-clouds_q19$Everyone <- clouds$Q19_reason_for_rep
-saveRDS(clouds_q19, file = "data/clouds_q19.rds")
+gen$q19 <- append(clouds_q19_q3, clouds_q19_q4)
+gen$q19$Everyone <- clouds$Q19_reason_for_rep
 ```
 
 ## Bar charts
@@ -148,19 +148,6 @@ Order Q5
 ```{r}
 analysis %<>%
   mutate(across(all_of(four_level_cols), ~ factor(., levels = four_levels)))
-```
-
-TODO: Rename Q6 labels
-```{r eval=FALSE, include=FALSE}
-analysis %<>%
-  mutate(label = case_match(
-    label,
-    "Omit" ~ NA,
-    "Standard" ~ "Assess Prior Work",
-    "Experiment" ~ "Repeatable Experiments",
-    "Data Collection" ~ "Data Collection",
-    "Transparency/Extension" ~ "Transparency/Extension"
-  ))
 ```
 
 
@@ -173,7 +160,6 @@ q7_to_likert <- function(data = analysis) {
     group_by(name, value) %>%
     summarise(n = n()) %>%
     mutate(value = factor(value, levels = agree_levels)) %>%
-    replace_na(list(value = "Don't know")) %>%
     group_by(name) %>%
     mutate(perc = n / sum(n)) %>%
     mutate(
@@ -190,12 +176,13 @@ q7_to_likert <- function(data = analysis) {
       )
     ) %>%
     ungroup() %>%
+    drop_na(value) %>%
     dplyr::select(-c(yeah, nah, idk))
 }
 ```
 
 
-```{r Q8}
+```{r Q7}
 q7_q3 <- map(
   subfields, ~ analysis %>%
     filter(Q3_recoded == .x) %>%
@@ -210,14 +197,90 @@ q7_q4 <- map(
 ) %>%
   set_names(types)
 
-q7 <- append(q7_q3, q7_q4)
-q7$Everyone <- q7_to_likert()
-saveRDS(q7, file = "data/q7.rds")
+gen$q7 <- append(q7_q3, q7_q4)
+gen$q7$Everyone <- q7_to_likert()
 ```
 
+## Q8, Q10 to likert
+
+```{r}
+to_likert <- function(data = analysis, col_prefix) {
+  data %>%
+    # make data for likert
+    pivot_longer(cols = starts_with(col_prefix)) %>%
+    group_by(name, value) %>%
+    summarise(n = n()) %>%
+    mutate(value = factor(value, levels = likely_levels)) %>%
+    group_by(name) %>%
+    mutate(perc = n / sum(n)) %>%
+    mutate(
+      yeah = ifelse(any(
+        value == "Somewhat likely to increase"),
+        perc[value == "Somewhat likely to increase"], 0),
+      idk = ifelse(
+        any(value == "Not likely to affect"),
+                   perc[value == "Not likely to affect"] / 2, 0),
+      nah = ifelse(any(
+        value == "Somewhat likely to decrease"), 
+        perc[value == "Somewhat likely to decrease"], 0),
+      start = case_match(
+        value,
+        "Very likely to increase" ~ yeah + idk,
+        "Somewhat likely to increase" ~ idk,
+        "Not likely to affect" ~ -idk,
+        "Somewhat likely to decrease" ~ -idk - perc,
+        "Very likely to decrease" ~ -idk - nah - perc,
+      )
+    ) %>%
+    ungroup() %>%
+    drop_na(value) %>%
+    dplyr::select(-c(yeah, nah, idk))
+}
+```
+
+```{r Q8}
+q8_q3 <- map(
+  subfields, ~ analysis %>%
+    filter(Q3_recoded == .x) %>%
+    to_likert("Q8_study")
+) %>%
+  set_names(subfields)
+
+q8_q4 <- map(
+  types, ~ analysis %>%
+    filter(Q4_quantqual == .x) %>%
+    to_likert("Q8_study")
+) %>%
+  set_names(types)
+
+gen$q8 <- append(q8_q3, q8_q4)
+gen$q8$Everyone <- to_likert(col_prefix = "Q8_study")
+```
+
+```{r Q10}
+q10_q3 <- map(
+  subfields, ~ analysis %>%
+    filter(Q3_recoded == .x) %>%
+    to_likert("Q10_phen")
+) %>%
+  set_names(subfields)
+
+q10_q4 <- map(
+  types, ~ analysis %>%
+    filter(Q4_quantqual == .x) %>%
+    to_likert("Q10_phen")
+) %>%
+  set_names(types)
+
+gen$q10 <- append(q10_q3, q10_q4)
+gen$q10$Everyone <- to_likert(col_prefix = "Q10_phen")
+```
 
 ## Save
 ```{r}
 analysis %>%
   saveRDS("data/analysis.rds")
+
+gen %>%
+  saveRDS("data/generated.rds")
 ```
