@@ -1,10 +1,6 @@
 # Data Dictionary for Q6 Coding
 
 - `Exclude`: Is there enough information in the qualitative definition of replicability to code for the respondents understanding of the term *vis a vis* the formal NASEM (2019) definition?
-- `replicable-nasem`: This calculated variable adds codes implying similarity to the NASEM definition of *replication* and subtracts codes implying similarity to the NASEM definition of *reproduction*, yielding a score of the possible domain [-4, 4] where negative numbers indicate definitions more closely associated with *reproduction* and positive numbers indicate definitions more closely associated with *replication*.
-  - The formula is:  
-  `(data-new +	methods-same + context-new + result-similar) -  
-  (data-same +	methods-varied + context-same +	result-same)`
 - `data-new`: Does the definition mention or strongly imply the use or collection of new data?
   - `NA`: Not applicable
   - `1`: Yes
@@ -29,6 +25,24 @@
 - `result-same`: Does the definition mention an expectation of recreating the same (identical) results as a prior study?
   - `NA`: Not applicable
   - `1`: Yes
+- `result-combined`: Does the definition mention an expectation of recreating the same (identical) or similar results as a prior study?
+  - `NA`: Not applicable
+  - `1`: Yes
+- `replicable-nasem`: This calculated variable adds codes implying similarity to the NASEM definition of *replication* , yielding a score of the possible domain [0,3] higher values indicate definitions more closely matching the NASEM definition.
+  - The formula is:  
+      `(data-new +	methods-same + result-combined)`
+- `data-method-result`: This calculated variable identifies definitions that include data-new = 1, methods-same = 1, and results-combined = 1.
+  - `NA`: Not applicable
+  - `1`: Yes
+- `data-method`: This calculated variable identifies definitions that include data-new = 1 AND methods-same = 1.
+    - `NA`: Not applicable
+    - `1`: Yes
+- `data-results`: This calculated variable identifies definitions that include data-new = 1 AND results-combined = 1.
+    - `NA`: Not applicable
+    - `1`: Yes
+- `method-results`: This calculated variable identifies definitions that include method-same = 1 AND results-combined = 1.
+    - `NA`: Not applicable
+    - `1`: Yes
 - `open-repeatable`: Does the definition mention motivation to assess or to improve how well the prior study conforms to open science principles?
   - `NA`: Not applicable
   - `1`: Yes
