@@ -72,32 +72,37 @@ Reproducible Research, Epistemology, Geographic Research Methods
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section*{Introduction}
-Since the 1600s, replication has been a defining characteristic of the scientific method and an essential tool of researchers working to remove errors from our understanding of phenomena. 
-\citet{nosek2020} broadly define a replication as any study that has at least one outcome that would be considered to be diagnostic evidence of a claim from prior research.
-More frequently, replication is defined along two axes that help to distinguish the type of diagnostic evidence a study will provide and the function or purpose it is intended to serve. 
-First, it is common to distinguish whether a replication study used the same data as the original study, or if new data were collected and analyzed. 
-Second, it is helpful to identify whether a replication is focused on the question of whether the specific results of the original study can be reobserved, or whether the conclusions drawn from the original study are robust to changes in procedure or context.
+Since the 1600s, replication has been a defining characteristic of the scientific method and an essential tool of researchers working to understanding and explain phenomena. 
+Broadly defined, a replication study is any study that has at least one outcome that would be considered diagnostic evidence of a claim from prior research \citep{nosek2020}.
+More frequently, replication studies are differentiated along axes that distinguish the epistemological function they are intended to serve. 
+Replications can be used to assess (1) conclusion, (2) internal, (3) construct, and (4) external validity, or (5) may act as confirmatory tests of an underlying hypothesis \citep[see][]{schmidt2009, gomez2010replications, radder2003, radder2012}. 
+While the result of a replication study does not provide conclusive evidence for or against a finding, a well-executed, high-quality replication that recreates the results of an prior study typically increases confidence in that finding \citep{earp2015, nichols2021}. 
+When prior results cannot be recreated through replication the claims of the prior study, the data and methods used, and the current understanding of the phenomena may be brought into question \citep{christensen2019, NASEM2019}.
 
-When a researcher asks whether the same data and procedures can be used to generate the same results as an original study the central purpose of their study is verification.
-If the researcher uses the original data, but introduces procedural differences they think may effect the original result they pursue a reanalysis designed to determine whether the original reasoning was somehow erroneous. 
-Both of these approaches to replication assess the internal validity of research and are more commonly referred to as reproductions.
-If the researcher tries to follow the procedures of an original study, but collects new data, the purpose shifts to evaluating the external validity of the original result by retesting it under new conditions.
-This approach is commonly referred to as replication. 
+While the number of reproduction and replication studies undertaken in the social and behavioral sciences continues to rise, such studies have not yet become commonplace in geography.
+The majority of recent research in the geographic literature on the subject has focused on reproduction over replication, and has emphasized the computational reproducibility of geographic research ahead of other dimensions.
+For example, an ongoing reproducibility initiative supported by the Association of Geographic Information Laboratories in Europe annually attempts to reproduce the computational results of submissions to their annual meeting and reports on the accessibility of related data, code, and computational environment \citep{nust2018, ostermann2021}.
+A series of reproduction studies led by Kedron and Holler \citep{Kedron2023Beyond, Kedron_Holler_Bardin_Hilgendorf_2022} advance this stream of work by introducing selected variations into the reproduction process to test the sensitivity of results to conceptual and methodological perturbations. 
+However, those studies also largely focuses on testing the conclusion and internal validity of past studies through computational reproduction. 
 
-While a replication or reproduction can never provide conclusive evidence for or against a finding, either type of study can be informative. 
-If a well-executed, high-quality replication or reproduction recreates the result of an original study, we are apt to increase our confidence in the original findings. 
-If a finding cannot be recreated, it reduces our confidence in the original result and suggests that our current understanding of the system being studied or our methods of testing that system are insufficient.
-
-For example, in a survey of 807 ecologists and evolutionary biologists, 64 percent admitted to failing to report non-significant results and 51 percent admitted to presenting unexpected findings as if they had been hypothesized from the start of the research \citep{fraser2018questionable}.
+The small number of published studies that have attempted to replicate geographic research suggest that many studies cannot be fully replicated \citep[e.g.,][]{Kedron2022dimaggio, paez2022reproducibility}, or are simply missing components needed to attempt a replication \citep{konkol2019, ostermann2017}.
+More often the literature on the replication of geographic research turns to the question of if and when it is reasonable to expect the findings and claims of a prior study to replicate \citep{kedron2021GA, kedron2022replication, goodchild2021replication, sui2021reproducibility}. 
+Place to place variation in phenomena, and the processes that produce them, are one of the defining features of geographic research and a central tenant of many of its research traditions.
+With those intellectual foundations, it remains unclear how current geographic researchers view replication and its role in the knowledge accumulation process.
+There is similarly limited empirical evidence available about the factors that motivate or discourage geographic researchers from pursuing replications. 
 
 To address this gap in our collective knowledge, we surveyed geographic researchers about their understanding of replicability, beliefs about what factors affects the chances or replicating a study, motivations to attempt replication studies, and experiences conducting replications.
-To support generalization, we designed a sampling frame to capture researchers from across disciplinary subfields and methodological approaches, and draw survey participants from that frame using a probability sampling scheme.
-In the remainder of this paper, we first present the design of our survey, sampling strategy, and analytical approach. 
-We then present the results of our survey before discussing the implications and limitations of our work. 
+We are aware of only a handful of similar published surveys within the geographic literature \citep{balz2020reproducibility, konkol2019, ostermann2017, kedron2023survey}.
+However, these surveys typically focus on the quantitative and computational intensive forms of geographic research, primarily assess the availablity of research artifacts (e.g., data and code), and address reproducibility, whether the same results can be created using the same data and methods, rather than replicability. 
+In all but one instance, these surveys also rely on convenience samples drawn from specialist conferences or non-representative subsets of the geographic research community. 
+In contrast, to support generalization, we designed a sampling frame to capture researchers from across disciplinary subfields and methodological approaches, and draw survey participants from that frame using a probability sampling scheme.
+In the remainder of this paper, we detail the design of our survey, sampling strategy, and analytical approach before presenting the results of our survey. 
+We then discuss the implications and limitations of our work. 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Data and Methods}
-Complete documentation of the procedures, survey instrument, and other materials used in this study are available through the Survey of Researcher Perceptions of Replication in Geography Repository (OSF WEBSITE).
+Complete documentation of the procedures, survey instrument, and other materials used in this study are available through the Survey of Researcher Perceptions of Replication in Geography Repository (\citet{Kedron_Holler_Bardin_Hilgendorf_2022} - \url{https://osf.io/x6qrk/}).
 The repository connects to a GitHub repository which hosts the anonymized dataset and code used to create all results and supplemental materials along with a complete history of their development. 
 All of the results presented in this paper can be independently reproduced using the materials in that repository.
 Before the start of data collection, we registered a preanalysis plan for the survey with OSF Registries (\citet{Kedron_RPl_Survey_PAP} - \url{https://osf.io/a4nwg}). 
@@ -106,16 +111,14 @@ The survey was conducted under the approval and supervision of the Arizona State
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Sampling Frame}
 Our target population of interest is researchers who have recently published in the field of geography. 
-We followed a 4-step procedure to create a sampling frame for our survey that captures this diverse population of researchers. 
-
-First, beginning at the publication level, we identified journals indexed as either geography or physical geography by the \href{https://access.clarivate.com/}{Web of Science's Journal Citation Reports} that also had a 5-year impact factor greater than 1.5.
+We followed a 4-step procedure to create a sampling frame for our survey that captures this diverse population of researchers. First, beginning at the publication level, we identified journals indexed as either geography or physical geography by the \href{https://access.clarivate.com/}{Web of Science's Journal Citation Reports} that also had a 5-year impact factor greater than 1.5.
 From those journals, we created a database of all articles published between 2017 and 2021.  
 
 Second, we used Arizona State University's institutional subscription to the \href{https://www.scopus.com/home.uri}{Scopus Database} to extract journal information (e.g., subject area, ranking), article information (e.g., abstract, citation counts), and author information (e.g., corresponding status, email) for each publication. 
 Because our intention was to capture individuals actively publishing new geographic research, we retained publications indexed by Scopus as \textit{document type = ``Article''} and removed all other publication types (e.g., editorials, book reviews) from our article database. 
 We also removed articles with missing authorship information. 
 
-Third, we created a list of researchers and their published articles, focusing on corresponding authors for two reasons.
+Third, moving to the researcher level, we created a list of researchers and their published articles, focusing on corresponding authors for two reasons.
 (1) Corresponding authorship is one indicator of the level of involvement an individual had in a given work. 
 While imperfect, it was the best available indicator in the Scopus database as across journals there is no commonly adopted policy for declarations of author work (e.g., CRediT Statements).
 (2) Scopus maintains email contact information for all corresponding authors, which gave us a means of contacting researchers in our sampling frame.
@@ -134,8 +137,8 @@ A similar proportion (32.0\%) were most recently a corresponding author for an a
 The survey first established eligibility based on age and geographic research activity in the past five years and asked researchers to report their primary subfield and methodology.
 We asked each participant to assess their familiarity with the term ``replicability'' and to provide their own definition. 
 We then provided a definition based on the \citet{nosek2020replication}  to establish a common understanding of replicability for the remainder of the survey.
-Remaining questions assessed the epistomological purpose of a replication (5 questions), factors that impact the chances of successfully replicating a study (18 questions) or the decision to attempt a replication (13 questions), and what portion of the geographic literature has/could/should be replicated (3 questions).
-For researchers who reported attempting reproductions, we asked researcher to elaborate on their motivations and outcomes (9 questions).
+Remaining questions assessed the epistomological purpose of a replication (5 questions), what portion of the geographic literature has/could/should be replicated (3 questions), and factors that impact the chances of successfully replicating a study (18 questions) or the decision to attempt a replication (13 questions).
+For researchers who reported attempting reproductions, we asked them to elaborate on their motivations and outcomes (9 questions).
 
 We developed the survey questions following a review of prior reproducibility surveys \citep[e.g.,][]{fanelli2009many,baker20161, konkol2019} and our own reading of recurring issues in the reproducibility and replicability literature. 
 We pilot tested the survey instrument with \textit{n}=19 graduate students and geography faculty with differing levels of experience, topical focus, and methodological background. 
@@ -154,30 +157,28 @@ Each researcher that opted to participate in the survey was provided with IRB ap
 Participants were also given the option to provide an email address for eligibility for one of three  prizes of 90 US\$, selected randomly after the data collection period.
 Participating researchers had the option to exit and re-enter the survey and were also able to review and change their answers using a back button as they progressed through the survey.
 At the end of the data collection period, responses were checked for completeness and coded using the reporting standards of the American Association For Public Opinion Research \citep{aaporstandards}.
-Responses were downloaded from Qualtrics, anonymized, and stored in a public de-identified database in the research compendium (self-identifying reference removed).
+Responses were downloaded from Qualtrics, anonymized, and stored in a public de-identified database in the research compendium.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Analytical Approach}
 
-We conducted two statistical analyses of the survey responses.
-First, we analyzed researcher perspectives on replicability by coding and calculating summary variables and statistics for three themes: how geographic researchers define replicability, factors researchers believe affect the chances of replicating a study, and factors researchers affect the decision to attempt to replicate a study.
-Second, we analyzed researchers' experiences attempting to replicate prior studies.
+We conducted two analyses of the survey responses.
+First, we analyzed researcher perspectives on replicability by coding and calculating summary variables and statistics for three themes: how geographic researchers define replicability, factors researchers believe affect the chances of replicating a study, and factors researchers believe affect the decision to attempt to replicate a study.
+Second, we analyzed the experiences of researchers attempting to replicate prior studies using statistical summaries of participant motivations, research practices, and ability to recreate study results.
+For both analyses, we produced and analyzed descriptive statistical summaries of participant responses to Likert scale questions cross-tabulated by disciplinary subfield and methodological approach.
+For free-from text responses we coded responses and selected illustrative examples for inclusion. 
 
-\subsubsection*{Analyzing Researcher Perspectives on Reproducibility}
-
-\noindent For our first set of analyses, we examined the full set of survey responses.
-
-\textit{Defining Reproducibility:} 
-We coded participants' qualitative definitions of ``reproducibility'' following two procedures.
-First, we measured the similarity of each provided definition to the definition adopted by the \textcite{NASEM2019}. 
-The NASEM defines reproducible research as having four characteristics --- same data, same procedure, same results, and same conditions.
-To make this comparison, each of the authors independently coded each respondent definition for the presence/absence of each of the four characteristics included in the NASEM definition.
+For free-form text definitions of ``replicability'' we coded participant responses using two procedures. 
+First, we measured the similarity of each provided definition to the definition adopted by the \citet{NASEM2019}. 
+The NASEM defines reproducible research as having three characteristics --- new data, same procedure, and same or similar results.
+To make this comparison, two of the authors independently coded each respondent definition for the presence/absence of each of these the three characteristics.
 Disagreements in the assignment of codes were resolved through discussion between the three authors.
-We created an aggregate measure of definition similarity for the final coded response for each participant by counting the presence of each NASEM definition characteristic, resulting in a measure with the domain [0, 4].
+We created an aggregate measure of definition similarity for the final coded response for each participant by counting the presence of each NASEM definition characteristic, resulting in a measure with the domain [0, 3].
 
-Second, we coded each definition to one of four motivations for ensuring the reproducibility of a study: (i) to facilitate the assessment of prior work, (ii) to assess experimental research, (iii) to improve transparency and facilitate further extension of work, and (iv) to improve the transparency and consistency of data collection.
-We derived this coding from common themes in the responses and our own reading of the reproducibility literature.
+Second, we coded each definition to identify mentions of: (i) internal validity assessment, (ii) external validity assessment, (iii) the significance of spatial or temporal context, (iv) epistemological necessity, and (v) adherence to open science practice.
+We derived this coding from common themes in the responses and our own reading of the replicability literature.
 As above, each definition was independently coded by each author before code assignments across authors were compared with disagreements resolved through discussion.
+Our first set of analyses examined the full set of survey responses, while our second set of analyses were restricted to the 84 participants that reported attempting a replication study in the past two years.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Results}
@@ -194,42 +195,39 @@ Different methodological approaches were well represented by respondents in the 
 \subsection*{Researcher Definitions of Replication and its Epistemic Functions}
 Geographic researchers are thinking about replicability and link the act of replicating a study to a number of different epistemological functions (Figure A). 
 A majority of respondents reported thinking about replicability (74\%), talking with colleagues about replicability (65\%), and considering replicability when undertaking peer-review (59\%) during the past two years. 
-Respondents believe that replication studies can be used to assess the construct validity of a prior study (75\%) and whether the claims of that study will hold in new locations (67\%) or new populations (63\%). 
-While respondents clearly linked replication to these epistemological objectives, they were also more likely to agree than strongly agree that replications could meet these goals.
-When compared to those working in other subfields, respondents that identified specializing in human geography or the study of nature and society were less likely to agree that replications could be used to achieve these goals. 
-For example, while 87 percent of respondents specializing in GIScience and methods believe replications could be used to assess whether a claim was the product of chance, just 57 percent of human and nature-society researchers agreed with this statement.
+In particular, respondents believe that replication studies can be used to assess the construct validity (75\%) and external validity of a prior study.
+Specifically, respondents believe that replication studies can assess whether the claims of that study will hold in new locations (67\%) or new populations (63\%). 
+While respondents clearly linked replication to epistemological functions, across all functions they were more likely to agree than strongly agree that replications could serve these purposes.
+Respondents that identified as human geographers or as studying nature and society were less likely to agree that replications could be used to achieve these goals when compared to those working in other subfields. 
+For example, 87 percent of respondents specializing in GIScience and methods believe replications could be used to assess whether a claim was the product of chance, compared to just 57 percent of human and nature-society researchers.
 
 \begin{center}
 \textbf{Insert Figure A About Here}
 \end{center}
 
-However, when respondents provided their own definitions of replicability many of these same concepts were not explicitly included. 47 percent of respondents included the need to assess or improve how well a prior study as part of their definition of replicability. 19 percent of respondents included the motivation to externally validate the claims of the original study by repeating the methods with new data in a new context. 
+While respondents largely agree that replication has some epistemological role to play in the geographic research process, many respondents did not explicitly include these same concepts in their definitions of replicability.
+At total of 253 of our respondents provided an interpretable definition of replicability, but only 68 of those definitions (26\%) referenced some form of epistemological function. 
+Using replication to externally validate the claims of a study was identified by 49 respondents (19\%).
+No other epistemological function was mentioned by more than 13 respondents (5\%).  
+In contrast, 123 respondents (48\%) reported that replications could be used to o assess or improve how well a prior study conforms to the principles of open science.
 
-Rather than focusing on these larger concepts, most respondent definitions presented criteria that identify a replication.
+Rather than focusing on these larger concepts, most respondents used their definitions to present the criteria that identify a study as a replication.
+On average, respondents provided definitions that included 1.2 of the three characteristics of the replicability definitions adopted by the NASEM.
+Comparing the similarity of results between studies (65\%) and using the same method across studies (56\%) were the characteristics of replicability most frequently identified by respondents.
+Less than a quarter of respondents explicitly included use of the collection of new data (12\%) in their definitions.
+Only seven percent of respondent definitions included all three characteristics identified by the NASEM.
+The pattern of similarity to the NASEM definition and each of its components was consistent across subfields and methodological approaches, with a slightly greater emphasis placed on methodological consistency by quantitative and geographic methods and GIS researchers.
 
-Analysis of coded Q6. Coding explicit mentions of the three dimensions of the NASEM replicability definition
-\begin{itemize}
-    \item New Data - 12\%
-    \item Same Method - 56\%
-    \item Results same or similar - 65\%
-    \item Only 7\% of respondents mention all three
-\end{itemize}
-
-Subfield variation
-\begin{itemize}
-    \item New Data - 12\%
-    \item Same Method - 56\%
-    \item Results same or similar - 65\%
-    \item Only 7\% of respondents mention all three
-\end{itemize}
+Respondents specializing in different subfields and methodological approaches also emphasized different epistemological roles for replication in the research process.
+For example, on \textcolor{red}{INSERT SOME CONTRASTING QUOTED EXAMPLES HERE.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Factors Affecting the Chances of Replicating a Prior Study}
 Overall respondents believe that the majority of research in the discipline has not been independently replicated and appear to be uncertain about what proportion of the literature could or should be replicated (Figure \ref{fig:Q12-HCS}). 
 On average, respondents estimated that 25 percent of recent studies in their sub-field have be replicated. 
 However, the distribution of these responses is strongly right skewed.
-In fact, 46.9 percent of respondents estimated that less than 10 percent of recent studies have been replicated.
-It is unclear if respondents believe recent geographic research could or should be replicated.
+In fact, 47 percent of respondents estimated that less than 10 percent of recent studies have been replicated.
+It is similarly unclear if respondents believe recent geographic research could or should be replicated.
 On average, respondents estimated that approximately half of studies 'could be replicated' (55.0\%) or 'should be replicated' (55.9\%). However, the distribution of responses to both questions are relatively flat across the range of possible values and highly variable (\textit{$sd_{could}=24.3\%$}, \textit{$sd_{should}=27.7\%$}), which suggests 
 respondents were uncertain whether it was possible or valuable to replicate recent research.  
 
@@ -239,21 +237,21 @@ respondents were uncertain whether it was possible or valuable to replicate rece
 
 Respondents identified a range of factors that might impact the chances of an independent researcher replicating the claims of a prior study (Figure \ref{fig:Q8-10-Chances}a).
 A majority of respondents identified the transparency and availability of the components of a study as affecting the odds of replication. 
-Poor documentation of the original study (74.9\%) and the use of restricted access data (66.1\%) were seen by the greatest number of respondents as decreasing the odds of being able to replicate a prior result. 
-Some respondents identified the inclusion of multiple sites in a study as increasing the chances of an independent replication of the findings of that study, but not in great enough numbers to constitute a majority. 
+Poor documentation of the original study (75\%) and the use of restricted access data (66\%) were seen by the greatest number of respondents as decreasing the odds of being able to replicate a prior result. 
+Some respondents identified the inclusion of multiple sites in a study as increasing the chances of an independent replication of the findings of that study (39\%), but not in great enough numbers to constitute a majority. 
 
 The characteristics of the research team that conducted the original study were generally not identified by respondents as likely to change the changes of replicating that study. 
-The majority of respondents (51.2\%) indicated that a large research team working on the prior study would have no effect on the chances of an independent researcher replicating that work. 
+The majority of respondents (51\%) indicated that a large research team working on the prior study would have no effect on the chances of an independent researcher replicating that work. 
 The remaining respondents were nearly evenly split as to whether a large team would increase of decrease the chances of replicating that study. 
 On the whole, more respondents believed that reliance on the unique expertise of the research team conducting a study, or the position adopted by that team would decrease, rather than increase, the chances of replicating the claims of a study.
-However, only 53.4 percent of respondents thought the position a research team chose to adopt when conducting study would decrease the chances of replicating that study. 
-Similarly, 48.8 percent of respondents identified reliance on the unique expertise of the original researcher team as decreasing the odds of replicating a study. 
+However, only 53 percent of respondents thought the position a research team chose to adopt when conducting study would decrease the chances of replicating that study. 
+Similarly, 48 percent of respondents identified reliance on the unique expertise of the original researcher team as decreasing the odds of replicating a study. 
 In both cases, 24 percent of respondents reported that they did not believe either factor would impact the odds of replicating a prior result.
 
 Respondents were similarly divided about the extend to which the approach adopted in the prior study would affect the chances of replicating that study. 
 Respondents were nearly evenly split as to whether the number of hypotheses tested by a study, and whether that study used qualitative or mixed methods would increase or decrease an independent researcher's chances of finding results that supported the claims of the prior study.
 About a quarter of respondents said that use of a mixed methods approach or the testing of multiple hypotheses had no effect on the chances of replication.
-In contrast, a large majority (80.6\%) of respondents identified the use of quantitative methods in a prior study as increasing the chances of replicating that study. 
+In contrast, a large majority (80\%) of respondents identified the use of quantitative methods in a prior study as increasing the chances of replicating that study. 
 This result matches the association observed in respondent definitions of replication, which ties replication to positivist science and quantitative approaches to knowledge creation.   
 
 \begin{center}
@@ -292,18 +290,18 @@ The challenge of recreating the methods of a prior study elicited a similar resp
 No characteristics of the original study, or the potential replication attempt, were identified by a majority of researchers as frequently or always impacting the replication decision. 
 However, some respondents did identify inexperience conducting replication studies (37\%) and potential geographic variation in the phenomena being investigated (33\%) as always or frequently influencing decisions to attempt replications. 
 Moreover, many respondents also saw these factors as occasionally affecting the decision to attempt a replication.
-Few respondents see a low chance of successfully replicating a study as a deterrent to attempting a replication, but it is unclear whether this result is driven by a belief in the value of null replication results, or the belief that replications in fact have high chances of success.
+Few respondents see a low chance of successfully replicating a study as a deterrent to attempting a replication, but it is unclear whether this result is driven by a belief in the value of null replication results, or the belief that replications have high chances of success.
 Finally, respondents did not identify ethical concerns as a factor affecting the decision to attempt a replication study. 
 However, several of these results should also be interpreted with caution. 
 More that 15 percent of respondents replied that they did not know whether geographic variation, inexperience with replication, or ethical concerns would affect a researcher's decision to attempt a replication. 
 
-Respondents identified a number of factors that were omitted from our survey instrument as important when deciding whether to attempt a replication of a geographic study. 
+Respondents also identified a number of factors that were omitted from our survey instrument as important when deciding whether to attempt a replication of a geographic study. 
 These factors include practical issues such as the difficulty identifying and accessing new field sites where data would be collected during a replication attempt, the costs of conducting a replication, and the time needed to obtain institutional approvals.
 Respondents also identified uncertainty about how to compare the results of a replication attempt to the original as important when deciding to undertake a replication attempt. 
 Finally, a small number of respondents believe that geographic researchers do not undertake replication studies because they either believe that replication is not possible or not necessary in geography. 
 These respondents argued that the main value of geographic studies is that each study provide a unique lens on the portion of the world under investigation, which makes replication a unnecessary endeavour.   
 
-Respondents from different disciplinary sub-fields and methodological approaches varied little in their identification of the factors affecting researchers' decisions to attempt replication studies. 
+Respondents from different disciplinary sub-fields and methodological approaches varied little in their identification of the factors affecting researchers' decisions to attempt replication studies (Table \ref{tab:motivations}). 
 Human geographers and researchers using quantitative methods less frequently identified academic incentives as important to the replication decision when compared to other sub-groups, but were otherwise broadly similar in their views on artifact availability and study characteristics. 
 A greater percentage of quantitative researchers and those working in the areas of GIScience and Methods identified the accessibility of data and methodological information as more often impacting the decision to replicate, but not at a level that was substantially higher than other sub-groups. 
 In fact, a greater percentage of researchers studying nature and society identified data accessibility as important than did methods researchers.  
@@ -312,27 +310,117 @@ In fact, a greater percentage of researchers studying nature and society identif
 \textbf{Insert Table \ref{tab:motivations} About Here}
 \end{center}
 
-Overall, the differences we observed across sub-groups was small and should be interpreted with caution given the sub-group sample sizes.
-We also found that human geographers and qualitative researchers were disproportionately likely to provide 'I do not know' responses across questions,  
-which further decreases the amount of information available about their views and beliefs. 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Replication Attempts}
-Far fewer respondents report attempting replications (31.8\%). 
+In total, 84 of the researchers that responded to our survey (30\%) reported attempting to independently replicate at least one study in the last two years.   
+This subset of participants formed the basis for our analysis of researcher experiences when attempting to replicate of the work of others.
+Respondents specializing in physical geography made up the greatest percentage of replication attempts, but researchers from all the subfields we examined reported attempting replication studies - physical (39\%), human (24\%), GIScience and methods (19\%) and nature and society (15\%).  
+Respondents attempting replications predominantly focused on quantitative (52\%) and mixed-methods (37\%) research designs. 
 
-\begin{itemize}
-    \item sub-set demographics
-    \item Q18 - same location response to characterize the attempts
-    \item Q19 - Motivations
-    \item Q20-21 - Replication outcome to component accessibility comparison. Perhaps also a comparison of success across locations by field of study (depending on the numbers).
-    \item From Q21f percent that published their findings. The into Q22 why didn't respondents pursue publication.
-\end{itemize}
+Most respondents reported that their replication studies were conducted in locations that differed from those of the original study (50\%), or that they first attempted to recreate the results of the original study in the same location before also testing them in a new location (18\%). 
+Of the 47 respondents that identified why they decided to attempt their replication study, 38 reported they were attempting to externally validate the claims of the original study, while 20 percent reported that they were motivated to examine the impact a difference in geographic or temporal context might have on the results. 
+For example, \textcolor{red}{PULL EXAMPLES FROM Q19}.
+A total of 16 respondents also identified replication as a fundamental part of knowledge creation and evaluation. 
+For example, \textcolor{red}{PULL ONE EXAMPLE FROM Q19}.
+
+In the majority of the attempted replications, respondents reported that they were able to recreate at least some of the results of the study they were investigating and form conclusions that matched those of the original study from those results. 
+55 respondents (62\%) reported being able to exactly replicate some of the results of a prior study. 
+However, only six respondents (7\%) reported that they were able to exactly replicate all results.
+The survey results were similar when we asked respondents whether they were able to partially replicate the results of a study --- finding a different result, but ultimately coming to a similar conclusion as the prior study. 
+62 respondents (73\%) reported being able to partially replicate at least some of the results of a study, while 14 respondents (16\%) reported being able to partially replicate all results. 
+
+Respondents reported a limited ability to access the data, code, and procedures used in the studies they were attempting to replicate. 
+Respondents were generally able to access some (51\%) or all (31\%) of the data used in a prior study, but were slightly less successful at accessing some (42\%) or all (28\%) of the code and procedural information.
+Moreover, being able to access these materials and information did not mean that researcher could fully understand or directly replicate how a study was conducted.
+Only 16 respondents that attempted replications (19\%) reported being able to follow all of the procedures of a prior study without having to make additional assumptions about how the procedure was implemented. 
+In all other cases the replicating researcher had to make additional assumptions about how the authors of the original study conducted their work.
+Respondents also reported that their replication attempts where complicated by an inability to recreate the computational environments of prior analyses and the unavailability of details about where a prior study was conducted.
+In only 31 cases (37\%) was the researcher able to find complete details about the geographic extent and location of the prior study.
+
+Ultimately 58 respondents that attempted replications (69\%) reported publishing some or all of their findings.
+23 respondents were able to publish all of the findings of their replication study, while another 36 respondents were able publish at lest some of their findings.
+48 Respondents that either did not attempt to publish their findings, or were only able to publish a portion of their findings, reported why they chose not to attempt publication. 
+27 respondents replied that replications were still ongoing or that it would simply take too much time to pursue publication. 
+Many other respondents said that they believe it would either be to difficult to publish their replication study because replications were not valued in the academic literature.
+For example researchers pointed out that, "no one seems to care", their results received "no interest from journals", and that "incentives in academia clearly point towards publishing original research."
+In one instance, "The journal that published the original paper specifically claimed to be interested in replications, but then desk rejected our replication."
+This reasoning reflects different form of non-response and selection bias at the root of the 'file drawer problem' in academic literature (CITE - Rosenthal 1979). 
+The file drawer problem exists when the outcome of a study influence the decision to publish or share that finding. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Conclusion}
-A standing question is how should geographic research approaches be designed to efficiently generate reliable knowledge.
+\section*{Discussion and conclusion}
+The results of our survey suggest geographic researchers are familiar with replication and believe that replication studies can serve several epistemological functions.
+However, we also found that researcher provided definitions often did not clearly articulate the epistemological role, or roles, that could be played by a replication study. 
+Researcher definitions instead focused on criteria used to identify a study as a replication. 
+This same focus on criteria can be observed in the wider R\&R literature, where authors typically broadly gesture to the epistemological function of replication then quickly turn to the accounting of data and code sharing practices. 
+This tendency toward criteria suggests that replication as an epistemological tool may not be at the forefront of geographic researchers' thinking about replication.
+
+It also remains unclear if or how geographic researchers map variations between an original study and its replication to the epistemological functions that replication study is intended to serve.
+A clear understanding of this connection between variations and functions is essential because which aspects of a study are changed controls the form of validity being assessed \citep{gomez2010replications, radder2003, schmidt2009}.
+Poor documentation and articulation of these connections in replication studies of geographic research could lead to the misinterpretation of the results of an individual replication, and could misdirect the collective assessment of a claim across a set of replication studies.
+Developing a schema to map replication study variations to functions may be particularly challenging in geography due to the complexity of geographic systems and the limited control researchers have over those systems. 
+Moreover, it is often unclear which aspect of a study are changing when a replication study is conducted in a new location. 
+For example, when a researcher conducting a replication collects new data from a new location it may be difficult to determine whether the study is testing the external validity of a claim in a new population, or in the same population that is subjected to different place-based processes.
+Our results suggest that a conceptual treatment of these connections attuned to the peculiarities of spatial data analysis would be an important first step toward conducting and systematically assessing interpretable replication studies of geographic research. 
+
+The results of our survey suggest that collectively researchers are uncertain whether it is valuable to replicate recent geographic research. 
+Our results do indicate that it is unlikely that this uncertainty stems from a lack of belief in the potential epistemological value of replication studies.
+Instead, mirroring traditional debates within the discipline, it may be the case that researchers are uncertain whether, or to what extend, the results and claims of a study should be expected to replicate in new locations. 
+Researcher uncertainty may also be a reflection of the perceived quality and importance of the available geographic literature. 
+If researchers believe many studies simply do not contain important findings, it would be rationale not to prioritize replicating those studies.
+Finally, researchers may simply perceive the external validity check offered by replication as not important to the goals of their research tradition. 
+Following \citet{sayer1992method} distinction between intensive and extensive research, many traditions in geography focus on reconstructing the causal chains that structure social and environmental relations in specfic contexts, rather than the discovery of empirical regularities across those contexts. 
+While some of the qualitative responses to our survey are suggestive of these points, follow-up research could delve more deeply into which studies researcher believe are valuable to replicate and why.
+
+Disciplinary variation
+\begin{itemize}
+    \item Overall, the differences we observed across sub-groups was small, but should be interpreted with caution given the sub-group sample sizes.
+    \item We also found that human geographers and qualitative researchers were disproportionately likely to provide 'I do not know' responses across questions, which further decreases the amount of information available about their views and beliefs. 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Limitations} 
+Survey research has several common limitations which we attempted to mitigate through the design of our study. 
+Unlike prior surveys of reproducibility and replicability, our study uses a sampling frame designed to be representative of our target population of active geographic researchers. 
+However, use of a well-constructed sampling frame and probability sampling do not ensure that a balanced and representative sample will be drawn from the target population. 
+Ideally, we would stratify our potential respondents into meaningful subgroups, randomly draw participants from these subgroups, and use a post-stratification procedure to address any imbalance in our response. 
+However, we could not follow this approach because stratification require knowledge of the population characteristics that predicts differences in response and a population wide census of those key predictors.
+We did not have access to this information because we presently lack a comprehensive understanding of replicability in geography and no list of geographic researchers complete with relevant predictor information exists.
+Given these limitations, our study should be viewed as an exploratory analysis with random sampling and a transparent, reproducible methodology for sample frame construction.
+
+We have similarly worked to reduce the effects of several other common forms of bias from our survey.
+We have worked to eliminate exclusion bias by including in our sampling frame all researchers publishing as corresponding authors in any wide range of geography journals over a five year period.
+However, geographic researchers publish in a range of journals that are not necessarily indexed as geography by the Web of Science. 
+Geographic researchers that have only published outside geographically indexed journals would not be captured in our sampling frame which would create exclusion errors. 
+However, we believe the number of individuals falling into this category will be small as most active geographic researchers are likely to have published at least one study in the journals meeting our inclusion criteria.
+
+Similarly, we cannot eliminate the possibility of self-selection bias from our survey. 
+It may be the case that geographic researchers more familiar with replication, or those working in subfields more involved with current R\&R debates (e.g., quantitative, computational research) were more likely to respond to our survey. 
+Conversely, it may also be the case that researchers working in subfields traditionally associated with critiques of a positivist scientific approach (e.g., qualitative, human geography) were less likely to participate in our survey. 
+We attempted to quantify potential self-selection by calculating and comparing survey completion rates across subfields and approaches. 
+Completion rates for all subfields were between 84 and 87 percent, except slightly higher rates for geographic methods and GIS researchers (96.8\%).
+Completion rates were 84.2 percent for mixed methods, 87.0 percent for qualitative methods, and 91.1 percent for quantitative methods. 
+These values suggest that self-selection was not a significant issue.
+
+We attempted to mitigate the potential for questionnaire bias, which could be caused by partially basing our survey instrument on prior studies that over-represent perspectives from the computational and experimental sciences.
+If this were the case, our survey may not gather data on researcher practices and beliefs relevant to replicating types of research not well represented in the existing literature. 
+To address this concern, we incorporated into our survey instrument questions informed by a parallel review of the R\&R literature available within geography and a review of critiques of positivist science made by social scientists and human geographers.
+We also provided the option for an open ended text response to questions to identify issues we did not anticipate during instrument construction.  
+
+Finally, our survey provides a description of the perspectives of geographic researchers at one point in time and one depth of understanding.
+As the first survey of its kind, our work provides an initial measurement of geographers definitions of replicability, beliefs about what factors affects the chances
+or replicating a study, motivations to attempt replication studies, and experiences
+conducting replications. 
+However, in many cases we were not able to probe more deeply into the nuances of these measurements and the conceptualization that underlie them.
+For example, as highlighted in the discussion, we were able to gain only limited insight into the epistemological roles researchers believe replications can serve and how they map those roles onto what is changes in a replication study.
+Future research using in-depth interviews or multi-analyst study designs could probe these question more deeply. 
+It would also be useful to track the information collected in this survey over time and to link that tracking to specific topics. 
+For example, understanding how researcher perspectives on the epistemological function of replication shift in climate change impacts research may be a useful indicator of how well researchers in that field are developing theories and methodologies capable of dealing with increasing variation and shifting baselines induced by climate change.
+More broadly, regular monitoring of perceptions of replication would help identify areas in need of engagement, as well as the success or failure of past investments designed to enhance R\&R. 
+
+
+
+
 
 \theendnotes
 
