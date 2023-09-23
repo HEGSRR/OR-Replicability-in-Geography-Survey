@@ -14,9 +14,9 @@
 
 > Link your reports, manuscripts, presentations, publication DOIs, preregistrations, etc. here. Delete this instruction and unused list items from your final repository. Adjust the file names and paths and add additional items as necessary.
 
-- Preregistration: https://doi.org/10.17605/OSF.IO/A4NWG
+- Preregistration: <https://doi.org/10.17605/OSF.IO/A4NWG>
 - Preprint:
-- Data Visualization:
+- Data Visualization: <https://doi.org/10.17605/OSF.IO/KUCHA>
 - Publication:
 - Manuscript: [docs/manuscript/manuscript.pdf](docs/manuscript/manuscript.pdf)
 
