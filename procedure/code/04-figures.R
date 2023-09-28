@@ -13,12 +13,11 @@ system("cp xkcd.ttf  ~/.fonts")
 font_import(paths = "~/.fonts", pattern="[X/x]kcd")
 fonts()
 loadfonts()
-library(stats)
+
 #--------------------------------#
 #- Figures -#
 #--------------------------------#
 analysis_hegs_rpl <- readRDS(here("data","derived","public","analysis_hegs_rpl.rds"))
-
 
 #-------------------------------------------------------------------------------#
 #Fig A - Diverging bar graph from Q7
@@ -100,6 +99,7 @@ analysis_hegs_rpl <- analysis_hegs_rpl %>%
                                                                                                                                           `Occasionally` = 2,
                                                                                                                                           `Frequently` = 1,
                                                                                                                                           `Always` = 0,
+                                                                                                                                          `Don't know` = 5,
                                                                                                                                           .default = NaN)))
 
 
@@ -226,11 +226,10 @@ pivot_longer(Fig_3, everything()) %>%
                                       "Lack of Funding",
                                       "Original Research"
          ))) %>%
-  filter(!is.na(value) & value!="Don't know") %>%
   ggplot(aes(x = name, y = percentage, fill = value)) +
   geom_bar(position = position_fill(reverse = TRUE), stat = "identity", width = 0.8) +
   coord_flip() + 
-  scale_fill_manual(values = c("#CD2311","#EF5645","#BFBFBF","#D9D9D9","#F2F2F2")) +
+  scale_fill_manual(values = c("#CD2311","#EF5645","#BFBFBF","#D9D9D9","#F2F2F2"), na.value="white") +
   ylab("") + 
   xlab("") +
   scale_x_discrete(expand = c(0, 0))  +
@@ -248,5 +247,24 @@ pivot_longer(Fig_3, everything()) %>%
         legend.title =element_blank()) 
 dev.off()
 
+#--------------------------------#
+#- Tables -#
+#--------------------------------#
+
+#-------------------------------------------------------------------------------#
+#Table 1 - Demographics of individuals who attempted a reproduction
+#-------------------------------------------------------------------------------#
+table(analysis_hegs_rpl$Q17_rep_behavior_5) ## 90 individuals reported attempting replications
+nonreplications <- c("R_3J8E376HYtxj70C","R_26hSbKV3v7G37sN","R_1dBrF30sz0LEXbx",
+                     "R_ANzRI4FyY6OkG0p","R_2arhrt5roJt2dUu","")
 
 
+
+
+
+
+
+Please also create summary statistics tables showing counts and percentages of respondents for the subsequent 
+questions through Q23 (ignoring the text responses).
+
+ln 401; please calculate these same completion rates for this survey. The current number are from the reproduction sruvey.
