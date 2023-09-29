@@ -13,6 +13,7 @@ system("cp xkcd.ttf  ~/.fonts")
 font_import(paths = "~/.fonts", pattern="[X/x]kcd")
 fonts()
 loadfonts()
+library(readxl)
 
 #--------------------------------#
 #- Figures -#
@@ -247,24 +248,22 @@ pivot_longer(Fig_3, everything()) %>%
         legend.title =element_blank()) 
 dev.off()
 
-#--------------------------------#
-#- Tables -#
-#--------------------------------#
+fig3_values <- pivot_longer(Fig_3, everything()) %>%
+  group_by(name) %>%
+  dplyr::count(value) %>%
+  mutate(percentage = (n/283),
+         name = factor(name, levels=c("Ethical Concerns",
+                                      "Low Chance of Success",
+                                      "Geographic Variation",
+                                      "Inexperience",
+                                      "Recreating Methods",
+                                      "Method Access",
+                                      "Data Access",
+                                      "Fraud",
+                                      "Difficulty Publishing",
+                                      "Perceived Value",
+                                      "Lack of Funding",
+                                      "Original Research"
+         )))
+write_csv(fig3_values, "fig3_labels.csv")
 
-#-------------------------------------------------------------------------------#
-#Table 1 - Demographics of individuals who attempted a reproduction
-#-------------------------------------------------------------------------------#
-table(analysis_hegs_rpl$Q17_rep_behavior_5) ## 90 individuals reported attempting replications
-nonreplications <- c("R_3J8E376HYtxj70C","R_26hSbKV3v7G37sN","R_1dBrF30sz0LEXbx",
-                     "R_ANzRI4FyY6OkG0p","R_2arhrt5roJt2dUu","")
-
-
-
-
-
-
-
-Please also create summary statistics tables showing counts and percentages of respondents for the subsequent 
-questions through Q23 (ignoring the text responses).
-
-ln 401; please calculate these same completion rates for this survey. The current number are from the reproduction sruvey.

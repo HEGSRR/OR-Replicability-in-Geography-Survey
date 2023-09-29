@@ -224,3 +224,57 @@ t1flex(Q4_table7) %>%
                pr_section = sect_properties)
 
 
+
+#--------------------------------#
+#- New Tables -#
+#--------------------------------#
+
+#Identify set of respodents who reported attempting a replication
+completed_rep <- read_xlsx(here("data","derived","public","Q17_coding.xlsx"))
+completed_rep <- completed_rep %>% 
+  filter(rep_flag == 1) %>%
+  transmute(ResponseId, rep_flag)
+
+replication_sample <- left_join(completed_rep,analysis_hegs_rpl,by="ResponseId")
+
+#-------------------------------------------------------------------------------#
+#Table 1 - Demographics of individuals who attempted a replication
+#-------------------------------------------------------------------------------#
+table1::label(replication_sample$Q3_recoded)   <- "Subdiscipline"
+table1::label(replication_sample$Q4_quantqual) <- "Methods"
+table1::label(replication_sample$Q24_lab_size) <- "Size of lab"
+table1::label(replication_sample$Q25_title)    <- "Title"
+table1::label(replication_sample$Q1_age)       <- "Age"
+
+rep_sample_demo <- table1::table1(~Q4_quantqual + Q24_lab_size + Q25_title + Q1_age +  Q3_recoded + Q4_quantqual, data = replication_sample)
+
+# Output tables using write table and flextable
+write.table(rep_sample_demo , here("results","tables","rep_sample_demo.csv"), col.names = T, row.names=F, append= T, sep=',')
+
+#-------------------------------------------------------------------------------#
+#Table 2 - Summary stats for individuals who attempted a replication
+#-------------------------------------------------------------------------------#
+table1::label(replication_sample$Q18_same_loc)      <- "Same location"
+table1::label(replication_sample$Q20_rep_results_1) <- "Exactly replicated"
+table1::label(replication_sample$Q20_rep_results_2) <- "Partially replicated"
+table1::label(replication_sample$Q20_rep_results_3) <- "Not replicated"
+table1::label(replication_sample$Q21_rep_process_1) <- "Access to data"
+table1::label(replication_sample$Q21_rep_process_2) <- "Access to code"
+table1::label(replication_sample$Q21_rep_process_3) <- "Follow procedures exactly"
+table1::label(replication_sample$Q21_rep_process_4) <- "Recreate computational environment"
+table1::label(replication_sample$Q21_rep_process_5) <- "Find details about geographic location and extent"
+table1::label(replication_sample$Q21_rep_process_6) <- "Publish findings"
+table1::label(replication_sample$Q23_eval_criteria) <- "Can evaluate when a study is replicated"
+
+
+rep_sum_char <- table1::table1(~Q18_same_loc + Q20_rep_results_1 + Q20_rep_results_2 + Q20_rep_results_3 +  Q21_rep_process_1 + Q21_rep_process_2 + 
+                                  Q21_rep_process_3 +Q21_rep_process_4 + Q21_rep_process_5 + Q21_rep_process_6 + Q23_eval_criteria, data = replication_sample)
+
+# Output tables using write table and flextable
+write.table(rep_sum_char , here("results","tables","rep_summary_chars.csv"), col.names = T, row.names=F, append= T, sep=',')
+
+#-------------------------------------------------------------------------------#
+#Table 3 - Survey completes
+#-------------------------------------------------------------------------------#
+ln 401; please calculate these same completion rates for this survey. 
+The current number are from the reproduction sruvey.
