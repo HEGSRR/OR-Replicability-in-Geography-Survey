@@ -1,24 +1,31 @@
-# A Survey of Reproducibility in Geographic Research
+# A Survey of Researcher Perceptions of Replication in Geography
 
 ## Abstract
 
-> Briefly describe the study. If the study is a reproduction or replication, the full citation of the original study should be included here with digital object identifier (DOI) to the study and, if applicable, any preregistration, code or data repositories. Delete this instruction from the final repository.
+Replications confront existing explanations with new evidence by retesting prior claims using new data and similar research procedures.
+Publishing replication studies remains uncommon in the geographic literature.
+Place-to-place variations make it unclear whether the results and claims of a study should be expected to replicate across locations, while a lack of experimental control makes it challenging to implement replications that can provide clear evidence about those same results and claims.
+The small number of studies that have attempted to replicate geographic research suggest that many studies cannot be fully replicated, or are simply missing information needed to attempt a replication.
+Accordingly, it remains unclear how geographic researchers view replication and its role in the knowledge accumulation process.
+To address this question, we surveyed geographic researchers about their understanding of replicability, beliefs about what factors affect the chances of replicating a study, motivations to attempt replication studies, and experiences conducting replications.
+The results of our survey suggest that researchers are familiar with replication and believe that replication studies can serve a range of epistemological functions.
+Nonetheless, only a small percentage of geographic researchers attempt or publish replications due to a lack of incentives.
+Researchers are similarly uncertain whether it is currently valuable to replicate geographic research.
+These findings may in part be due to differences between research traditions, and it may be fruitful to further examine how researchers working in different subfields perceive and use replication in their work.
 
 ## Authors
 
-- Peter Kedron
-- Joseph Holler
-- Sarah Bardin
+- [Peter Kedron](https://peterkedron.com/)
+- [Joseph Holler](https://josephholler.github.io)
+- [Sarah Bardin](https://github.com/SarahBardin)
 
-## Repository Documents
+## Repository Relates to:
 
-> Link your reports, manuscripts, presentations, publication DOIs, preregistrations, etc. here. Delete this instruction and unused list items from your final repository. Adjust the file names and paths and add additional items as necessary.
-
-- Preregistration: <https://doi.org/10.17605/OSF.IO/A4NWG>
-- Preprint:
+- OSF Project:
+- OSF Preregistration: <https://doi.org/10.17605/OSF.IO/A4NWG>
+- OSF Preprint: 
 - Data Visualization: <https://doi.org/10.17605/OSF.IO/KUCHA>
 - Publication:
-- Manuscript: [docs/manuscript/manuscript.pdf](docs/manuscript/manuscript.pdf)
 
 ## Repository Contents
 
@@ -26,5 +33,7 @@ The contents of this repository are outlined in three tables:
 - Data: [data/data_index.csv](data/data_index.csv)
 - Procedures: [procedure/procedure_index.csv](procedure/procedure_index.csv)
 - Results: [results/results_index.csv](results/results_index.csv)
+
+Additionally, the `docs/presentation` directory contains code for a Shiny App data visualization.
 
 The [template_readme.md](template_readme.md) file contains more information on structure and rationale of this research template repository, as well as important references and licenses.
