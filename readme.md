@@ -19,11 +19,15 @@ These findings may in part be due to differences between research traditions, an
 - [Joseph Holler](https://josephholler.github.io)
 - [Sarah Bardin](https://github.com/SarahBardin)
 
+## Key words
+
+Replicability, Open Science, Geographic Research Methods, Epistemology, Survey
+
 ## Repository Relates to:
 
 - OSF Project:
 - OSF Preregistration: <https://doi.org/10.17605/OSF.IO/A4NWG>
-- OSF Preprint: 
+- OSF Preprint:
 - Data Visualization: <https://doi.org/10.17605/OSF.IO/KUCHA>
 - Publication:
 
