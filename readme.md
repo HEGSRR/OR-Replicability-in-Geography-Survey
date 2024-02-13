@@ -27,7 +27,7 @@ Replicability, Open Science, Geographic Research Methods, Epistemology, Survey
 
 - OSF Project: <https://doi.org/10.17605/OSF.IO/X6QRK>
 - OSF Preregistration: <https://doi.org/10.17605/OSF.IO/A4NWG>
-- OSF Preprint: [A_Survey_of_Researcher_Perceptions_of_Replication_in_Geography-Preprint.pdf](docs/A_Survey_of_Researcher_Perceptions_of_Replication_in_Geography-Preprint.pdf)
+- OSF Preprint: <https://doi.org/10.31222/osf.io/cgvzp>
 - Data Visualization: <https://doi.org/10.17605/OSF.IO/KUCHA>
 - Publication:
 
