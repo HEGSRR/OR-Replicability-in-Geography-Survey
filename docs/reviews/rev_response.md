@@ -3,7 +3,6 @@ The study aims to increase our understanding of how researchers in the geoscienc
 
 1. Overall, the background contextualization and the conceptualization of important elements are convincingly developed. Nevertheless I struggle to understand the place and role of the concept of direct replication (p10f). What is the difference to reproduction and conceptual replication, and more importantly, does it matter for the purposes of this paper? It is not being taken up again in the discussion.
 2. The nomothetic-idiographic debate goes decades back, and it might be worth mentioned at least some of the original papers by Hartshorne and Schaefer here (p6).
-3. Similar to my comment on direct replication, is the distinction between intensive and extensive research (p8) necessary and helpful for this paper? If not taken up again in the discussion, it could be reduced to a single sentence or even removed entirely.
 4. In the sampling scheme, what is the justification for the JIF of 1.5? Even within the geosciences, JIF vary widely between sub-disciplines, and there is enough evidence that the JIF often does not reflect well a journal's scientific impact or merit.
 5. There are occasional formatting problems with references, e.g., p12 L5
 6. How does the survey's definition of replication relate to the more detailed one from the Turing Way?
@@ -21,17 +20,35 @@ Thank you for the opportunity to read this paper. The study investigates in a sc
 
 The structure of the work is overall good, with the exception of the final section, named "Discussion and Conclusion". Although I cannot be sure, since the numbering of the sections and subsections is missing in the document that I received, I assume that "Limitations and Future Work" is also part of this section. The latter reads more as a conclusion rather than describing limitations. I would recommend to separate the Discussion (with limitations) and the Conclusion in two different sections to conclude this work concisely.
 
+### Response 
+*We thank the reviewer for their supportive assessment and suggestions. 
+Following the suggestion, we have separated the Discussion and Conclusions into distinct sections with the limitations places within the discussion.* 
+
 The document begins (p. 3, l. 2-9) with definitions for R&R. I would recommend to provide citations for these definitions to avoid confusion, as there are two major approaches regarding what is replicability and what is reproducibility (for reference, see https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#rr-overview-definitions, https://arxiv.org/abs/1802.03311). Both of these "schools" are widely adopted, so I think it is advantageous for this specific paper to acknowledge the existence of both and to clarify which one is adopted by the authors. This might also be helpful in the discussion section (p. 27, l. 18-19), where the authors note that researchers tend to conflate the two terms (there is a good reason for this).
 
 The term "epistemological functions" is a recurring one throughout the document. Figure 1 provides some sort of indication about what is meant with this term, but I think it will enhance the clarity of the manuscript to define the term in the text and to provide some examples of epistemological functions.
 
+## Response
+The reviewers makes a strong point about the alternative approachs to R&R in the literature.
+We have worked to clarify the definitions and place each within these differing approaches. 
+To further locate the definitions, we have added a few sentences and references to a series of papers/reports that map usage of these terms in different discilpines. 
+We have likewise clarified our use of 'epistemological functions' and given a small number of examples.
 
 More comments that could enhance the clarity of the document can be found below (many of them just refer to syntax and typos):
+
+
 
 ## Introduction
 - p. 5, l. 6-9: It is not clear to me what is the implication of this sentence.
 
 - p. 5, l. 25-29 and p. 6, l. 1-10: Is this a taxonomy from the literature or is it introduced by the authors? This should be clarified.
+
+### Response
+*We have reworked each of these sections to improve clarify. 
+The taxonomy we present is a synthesis of taxonomies presented by the prior authors cited in the draft.
+However, we have reworked the writing to make the connection and attribution clearer as suggested.*
+
+
 
 ## The Replicability of Geographic Research
 - p.8, line 29: small typo; argue rather than argues?
@@ -40,12 +57,27 @@ More comments that could enhance the clarity of the document can be found below 
 
 - p. 9, lines 19-21: "Moreover... location": this sentence seems quite general. Why or in which cases it is unclear which factors should be accounted for when studying a location? Or give examples of such factors maybe
 
+### Response
+*We have corrected and added details that address these issues.* 
+
+
+
 ## Data and Methods
 - p. 9, l. 8-16: OSF repositories can be provided as anonymized links for double-blind peer-review purposes.
 
 - p. 12, l. 5: nosek2020: typo on a citation?
 
 - p. 13, l. 14: What is meant by "research compendium" in this case?
+
+### Response
+*We have corrected the citation typo and changed "compendium" to "repository" for consistency with our language at the beginning of this section. 
+More broadly, the note on the anonymized link is a very useful. 
+Currently our respository is structured to pass the user to a GitHub repository that stores all project elements (e.g. data, code, protocols, IRB, ...). 
+Given this structure, the anonymized link from OSF would not remove all identifiers because of the handoff to GitHub. 
+However, this has given us something to think about for our next project.
+Perhaps in future we will create an OSF repository with the essentials for anonymous review and upon publication, link and populate that repository back with all of our version tracked work from GitHub. 
+Simpler still, we have attempted to share all our links and work with our names attached at the start of review, but our offers to waive our right to blinding have not yet found purchase at different journals.*
+
 
 
 ## Results
@@ -54,6 +86,16 @@ More comments that could enhance the clarity of the document can be found below 
 - p.16, l. 2: What makes the definitions "interpretable"?
 
 - p. 17, l. 17: Syntax is a bit confusing
+
+### Response
+*We have changed to address these comments. 
+p14 does refer to job title.
+We changed the wording in the text to better capture this idea.
+We have dropped interpretable.
+There are a small number of "NA" or similar text responses that were user provided, but are not definitions of the term. 
+However, nearly all provided definitions could be read, so the adjective is not necessary and confusing as suggested.*
+
+
 
 - Figure 3: "researcher position": Is it meant as in rank or special mission, eg. in Antarctica? This is not specified in the questionnaire as well.
 
@@ -67,6 +109,19 @@ More comments that could enhance the clarity of the document can be found below 
 
 - p. 21, l. 5-6: "with no clear trend": again, the difference between positive and negative is 11%, so I am wondering how the authors decide if the the difference is big enough to show a trend or not.
 
+### Response
+*Thank you for this series of carefully considered and helpful comments. 
+We have revised each of these text sections improve our presentation and interpretation of these results.
+We have adjusted our language on several points in an attempt to not overstate, or over interpret our data.
+Our new presentation is much more cautious and places the directional indicators around each characteristic in the context of the 'don't know' and 'no effect' results.
+We believe our new writing conveys a indication of direction coupled with overall uncertainty among the respondents.*
+
+*As a clarification, by researcher position, we originally intended to capture the concept of positionality, which is an important element of qualitative researcher design.
+However, it is certainly possible that a survey respondent might also read the question as the official position, or even location of a researcher.
+To address this concern, we have added some additional writing to the new disussion section to reflect the ambiguity of this question.*
+
+
+
 - p. 21, l. 12: Is this restricted only to a specific subfield ("geographic" being used as a descriptor of the sample)
 
 - p.21, l. 34: difficulty in accessing
@@ -76,6 +131,12 @@ More comments that could enhance the clarity of the document can be found below 
 - Table 1 and Figure 4 seem to have the same groupings on the vertical axis with different labels (eg., Research Environment vs Academic Incentives). It is less confusing if the labeling becomes consistent for both.
 
 - p. 25, l. 13: "Before" does not stem from the questionnaire, as it only asks if it was done in both locations without specifying the order
+
+
+### Response
+*We have made and tracted adjustments to each of these comments in the text.
+Thank you for catching the inconsistency between Fig 4 and Table 1, and our inclusion of 'before' when it was indeed not in the question. 
+We have corrected both these issues.*
 
 
 ## Discussion:
@@ -88,3 +149,6 @@ More comments that could enhance the clarity of the document can be found below 
 - p. 29, l. 6: researcher -> researchers?
 
 - p. 31, l. 18: one -> in?
+
+### Response
+*We have made this minor edits in the manuscript.*
