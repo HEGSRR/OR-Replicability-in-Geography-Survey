@@ -20,3 +20,10 @@
 - `extension`: Is the motivation for the replication to extend a prior study with improvements in methodology or data?
   - `1`: Yes  
 - `q19-jh`: Notes about coding by Joseph Holler
+- `Q22_code`: contains list of numeric codes for types of meaningful responses to question 22 on the reasons that researchers have not published the results of replication studies
+  - `1`: Expression of self-censorship, especially with regard to results that lack interest or significance.
+  - `2`: Researchers are still working on the replication study or express that the replication is taking too long or is too much work.
+  - `3`: Researchers are still working on writing or revising the replication study publication, or express that writing takes too much time.
+  - `4`: Expression of a lack of interest on the part of publishers, journals, and/or reviewers.
+  - `5`: Difficulty replicating or replicating in full, or finding results that do not support the original study
+  - `6`: Other issues with academic culture or institutions, e.g. career pressures, lack of funding, etc.

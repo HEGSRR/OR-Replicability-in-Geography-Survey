@@ -1,5 +1,6 @@
 file_path,file_name,metadata_files
-raw/public,raw_hegs_rpl.rds,HEGS-Replicability.qsf; raw/publicraw_rpl_survey_metadata.rds; raw/publicraw_rpl_survey_questions.rds
+raw/private,raw_rpl_responses.rds,HEGS-Replicability.qsf; raw/public/raw_rpl_survey_metadata.rds; raw/public/raw_rpl_survey_questions.rds
+raw/public,raw_hegs_rpl.rds,HEGS-Replicability.qsf; raw/public/raw_rpl_survey_metadata.rds; raw/public/raw_rpl_survey_questions.rds
 raw/public,raw_rpl_survey_metadata.rds,n/a - metadata for raw_hegs_rpl.rds
 raw/public,raw_rpl_survey_questions.rds,n/a - metadata for raw_hegs_rpl.rds
 derived/public,q6_coding_final.csv,q6_codebook.md
