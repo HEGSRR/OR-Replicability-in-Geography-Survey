@@ -3,6 +3,7 @@ library(tidyverse)
 library(table1)
 library(flextable)
 library(officer)
+library(readxl)
 
 #--------------------------------#
 #-                              -#
@@ -14,7 +15,7 @@ analysis_hegs_rpl <- readRDS(here("data","derived","public","analysis_hegs_rpl.r
 #Define MS Word table layout options
 sect_properties <- prop_section(
   page_size = page_size(
-    orient = "landscape",
+    orient = "landscape", 
     width = 8.3, height = 11.7
   ),
   type = "continuous",
@@ -231,11 +232,15 @@ t1flex(Q4_table7) %>%
 
 #Identify set of respodents who reported attempting a replication
 completed_rep <- read_xlsx(here("data","derived","public","Q17_coding.xlsx"))
+
+reason_no_pub <- completed_rep %>%  filter(!is.na(completed_rep$Q22_code)) %>% select(Q22_reason_no_pub, Q22_code)
+
 completed_rep <- completed_rep %>% 
   filter(rep_flag == 1) %>%
   transmute(ResponseId, rep_flag)
 
 replication_sample <- left_join(completed_rep,analysis_hegs_rpl,by="ResponseId")
+
 
 #-------------------------------------------------------------------------------#
 #Table 1 - Demographics of individuals who attempted a replication
@@ -276,5 +281,4 @@ write.table(rep_sum_char , here("results","tables","rep_summary_chars.csv"), col
 #-------------------------------------------------------------------------------#
 #Table 3 - Survey completes
 #-------------------------------------------------------------------------------#
-ln 401; please calculate these same completion rates for this survey. 
-The current number are from the reproduction sruvey.
+

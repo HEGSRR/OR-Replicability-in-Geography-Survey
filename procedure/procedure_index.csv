@@ -1,6 +1,11 @@
 Directory,File Name,Purpose
-code,script1.R,download and preprocess data
-protocol,survey_irb.pdf,Institutional review board protocol for survey sampling and instrument
-protocol,mapworkshop.pdf,participatory mapping workshop protocol
-code,script2.R,run analysis
-code,script3.R,generate visualizations for results
+protocols,consent_form_replication_researcher_survey.pdf,Informed consent
+protocols,prize_terms_and_conditions.pdf,prize draw protocol and conditions
+protocols,Researcher-Survey_Replication-Instrument-v1.pdf,Qualtrics internet survey instrument
+code,101-followup_emails.R,generate email list for reminder distribution
+protocols,AAPOR-disposition-codes.pdf,reference for coding survey response
+code,00-qualtRics.R,download survey data from Qualtrics using API and access key (restricted to IRB-approved researchers)
+code,01-deidentify.R,deidentify raw survey data and save public R file
+code,02-clean.R,"prepare data for analysis, exluding incomplete or ineligible data and recoding qualitative categorical responses"
+code,03-analysis.R,descriptive analysis and crosstabulations
+code,04-figures.R,generate graphs for presentation and publication
