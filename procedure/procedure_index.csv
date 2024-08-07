@@ -4,6 +4,7 @@ protocols,prize_terms_and_conditions.pdf,prize draw protocol and conditions
 protocols,Researcher-Survey_Replication-Instrument-v1.pdf,Qualtrics internet survey instrument
 code,101-followup_emails.R,generate email list for reminder distribution
 protocols,AAPOR-disposition-codes.pdf,reference for coding survey response
+environment,r_environment.txt,computational environment for analysis in R
 code,00-qualtRics.R,download survey data from Qualtrics using API and access key (restricted to IRB-approved researchers)
 code,01-deidentify.R,deidentify raw survey data and save public R file
 code,02-clean.R,"prepare data for analysis, exluding incomplete or ineligible data and recoding qualitative categorical responses"
