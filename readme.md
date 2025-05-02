@@ -29,7 +29,7 @@ Replicability, Open Science, Geographic Research Methods, Epistemology, Survey
 - OSF Preregistration: <https://doi.org/10.17605/OSF.IO/A4NWG>
 - OSF Preprint: <https://doi.org/10.31222/osf.io/cgvzp>
 - Data Visualization: <https://doi.org/10.17605/OSF.IO/KUCHA>
-- Publication:
+- Publication: <https://doi.org/10.1080/24694452.2024.2415695>
 
 ## Repository Contents
 
